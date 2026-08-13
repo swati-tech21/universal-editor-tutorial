@@ -1,14 +1,14 @@
 export default function decorate(block) {
   const cards = [...block.children];
 
-  block.classList.add('feature-cards-container');
+  block.classList.add('feature-cards');
 
   cards.forEach((card) => {
+    card.classList.add('feature-card');
+
     const rows = [...card.children];
 
-    if (rows.length < 5) {
-      return;
-    }
+    if (rows.length < 5) return;
 
     const [
       imageRow,
@@ -18,48 +18,27 @@ export default function decorate(block) {
       ctaLinkRow,
     ] = rows;
 
-    card.classList.add('feature-card-item');
-
-    /*
-     * IMAGE
-     */
     imageRow.classList.add('feature-card-image');
+    titleRow.classList.add('feature-card-title');
+    descriptionRow.classList.add('feature-card-description');
 
-    /*
-     * CONTENT
-     */
+    // Create content wrapper
     const content = document.createElement('div');
     content.className = 'feature-card-content';
 
-    /*
-     * TITLE
-     */
-    titleRow.classList.add('feature-card-title');
+    content.appendChild(titleRow);
+    content.appendChild(descriptionRow);
 
-    /*
-     * DESCRIPTION
-     */
-    descriptionRow.classList.add('feature-card-description');
-
-    /*
-     * Add title and description
-     */
-    content.append(titleRow, descriptionRow);
-
-    /*
-     * CTA
-     */
+    // CTA
     const ctaLabel = ctaLabelRow.textContent.trim();
 
     let ctaUrl = '';
 
-    // Try to find an anchor first
-    const linkElement = ctaLinkRow.querySelector('a');
+    const link = ctaLinkRow.querySelector('a');
 
-    if (linkElement) {
-      ctaUrl = linkElement.href;
+    if (link) {
+      ctaUrl = link.href;
     } else {
-      // Otherwise use the text stored by the aem-content field
       ctaUrl = ctaLinkRow.textContent.trim();
     }
 
@@ -73,20 +52,14 @@ export default function decorate(block) {
         cta.href = ctaUrl;
       }
 
-      cta.setAttribute('aria-label', ctaLabel);
-
       content.appendChild(cta);
     }
 
-    /*
-     * Remove original CTA rows
-     */
+    // Remove original CTA rows
     ctaLabelRow.remove();
     ctaLinkRow.remove();
 
-    /*
-     * Add content to card
-     */
+    // Add content
     card.appendChild(content);
   });
 }
