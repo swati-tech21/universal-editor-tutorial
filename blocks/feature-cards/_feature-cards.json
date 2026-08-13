@@ -45,8 +45,8 @@
         {
           "component": "text",
           "valueType": "string",
-          "name": "heading",
-          "label": "Heading"
+          "name": "title",
+          "label": "Title"
         },
         {
           "component": "richtext",
