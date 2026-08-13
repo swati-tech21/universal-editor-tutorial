@@ -208,11 +208,10 @@
         "label": "CTA Label"
       },
       {
-        "component": "reference",
+        "component": "text",
         "valueType": "string",
         "name": "ctaLink",
-        "label": "CTA Link",
-        "multi": false
+        "label": "CTA Link"
       }
     ]
   },
