@@ -143,14 +143,14 @@
           }
         },
         {
-          "title": "Card",
+          "title": "Feature-card",
           "id": "feature-card",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
-                  "name": "Card",
+                  "name": "Feature-card",
                   "model": "feature-card"
                 }
               }
