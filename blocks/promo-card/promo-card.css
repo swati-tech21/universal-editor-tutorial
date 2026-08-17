@@ -317,7 +317,7 @@
 
   min-width: 300px;
 
-  padding: 11px 24px;
+  padding: 7px 17px;
 
   box-sizing: border-box;
 
@@ -330,11 +330,11 @@
 
   font-family: Roboto, Arial, sans-serif;
 
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 600;
 
   line-height: 1.2;
-
+letter-spacing: 1px;
   text-decoration: none;
 
   transition:
