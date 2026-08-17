@@ -2,9 +2,6 @@
    PROMO CARD
    ================================================================ */
 
-   .section.promo-card-container{
-padding: 0;
-   }
 .promo-card.block {
   position: relative;
   width: 100%;
