@@ -42,43 +42,7 @@ function createCta(label, href, className = 'promo-card-cta') {
   cta.href = href;
 
   cta.innerHTML = `
-    <span>${label}</span>
-
-    <span class="arrow-wrapper" aria-hidden="true">
-      <svg class="arrow arrow-current" viewBox="0 0 24 24">
-        <path
-          d="M3 12H19"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        ></path>
-
-        <path
-          d="M13 6L19 12L13 18"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linejoin="miter"
-        ></path>
-      </svg>
-
-      <svg class="arrow arrow-next" viewBox="0 0 24 24">
-        <path
-          d="M3 12H19"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        ></path>
-
-        <path
-          d="M13 6L19 12L13 18"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linejoin="miter"
-        ></path>
-      </svg>
-    </span>
+    <span>${label}</span>    
   `;
 
   return cta;

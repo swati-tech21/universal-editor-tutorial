@@ -15,16 +15,13 @@
    ================================================================ */
 
 .promo-card.block .promo-card-inner {
-  position: relative;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-
-  width: min(900px, calc(100% - 40px));
-  min-height: 400px;
-
-  margin: 0 auto;
+    position: relative;
+    display: grid;
+    grid-template-columns: 44% 58%;
+    align-items: center;
+    width: min(839px, calc(100% - 50px));
+    min-height: 450px;
+    margin: 0 auto;
 }
 
 /* ================================================================
@@ -39,7 +36,7 @@
 
   overflow: hidden;
 
-  border-radius: 0 16px 16px 16px;
+  border-radius: 0 13px 13px 13px;
 
   z-index: 1;
 }
@@ -66,25 +63,17 @@
    ================================================================ */
 
 .promo-card.block .promo-card-content {
-  position: relative;
-
-  z-index: 2;
-
-  display: flex;
-  flex-direction: column;
-
-  width: calc(100% + 35px);
-  min-height: 400px;
-
-  box-sizing: border-box;
-
-  padding: 38px 42px;
-
-  background: #fff;
-
-  border-radius: 16px;
-
-  box-shadow: 0 12px 25px rgb(0 0 0 / 8%);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    width: calc(97% + 40px);
+    min-height: 400px;
+    box-sizing: border-box;
+    padding: 50px 48px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 12px 25px rgb(0 0 0 / 8%);
 }
 
 /* ================================================================
@@ -99,7 +88,8 @@
 
 .promo-card.block.left-img .promo-card-image {
   grid-column: 2;
-  margin-top: 40px;
+  margin-top: 7.7rem;
+  transform: translateX(-10px);
 }
 
 /* ================================================================
@@ -146,11 +136,11 @@
 
   font-family: Roboto, Arial, sans-serif;
 
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 700;
 
-  line-height: 1.15;
-  letter-spacing: -0.6px;
+  line-height: 1;
+  letter-spacing: 1px;
 
   color: #050505;
 }
@@ -191,6 +181,8 @@
 
 .promo-card.block .promo-card-description p {
   margin: 0 0 10px;
+  font-size: 13px;
+  letter-spacing: 0.7px;
 }
 
 .promo-card.block .promo-card-description p:last-child {
@@ -227,9 +219,9 @@
 
   font-family: Roboto, Arial, sans-serif;
 
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 600;
-
+  letter-spacing: 0.7px;
   line-height: 1.2;
 
   text-decoration: none;
@@ -367,12 +359,13 @@
   }
 
   .promo-card.block .promo-card-inner {
-    display: flex;
-    flex-direction: column;
-
-    width: calc(100% - 32px);
-
-    min-height: auto;
+    position: relative;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    align-items: center;
+    width: min(839px, calc(100% - 50px));
+    min-height: 450px;
+    margin: 0 auto;
   }
 
   /* ==============================================================
@@ -397,7 +390,7 @@
   .promo-card.block .promo-card-content {
     order: 2 !important;
 
-    width: calc(100% - 24px);
+    width: calc(100% - 50px);
 
     min-height: 360px;
 
@@ -482,7 +475,7 @@
 
   .promo-card.block .promo-card-cta {
     min-width: 100%;
-    font-size: 15px;
+    font-size: 12px;
   }
 
   .promo-card.block .promo-main-cta {
