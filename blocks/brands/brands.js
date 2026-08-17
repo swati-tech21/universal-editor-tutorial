@@ -1,23 +1,54 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
-import { moveInstrumentation } from '../../scripts/scripts.js';
-
 export default function decorate(block) {
-  /* change to ul, li */
-  const ul = document.createElement('ul');
-  [...block.children].forEach((row) => {
-    const li = document.createElement('li');
-    moveInstrumentation(row, li);
-    while (row.firstElementChild) li.append(row.firstElementChild);
-    [...li.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-      else div.className = 'cards-card-body';
-    });
-    ul.append(li);
+  const items = [...block.children];
+
+  if (!items.length) return;
+
+  // Create wrappers
+  const titleWrapper = document.createElement('div');
+  titleWrapper.className = 'brands-header';
+
+  const grid = document.createElement('div');
+  grid.className = 'brands-grid';
+
+  const footer = document.createElement('div');
+  footer.className = 'brands-footer';
+
+  items.forEach((item) => {
+    // Brand item
+    if (item.classList.contains('brand')) {
+      item.classList.add('brand-card');
+
+      const image = item.querySelector('img');
+      const link = item.querySelector('a');
+
+      if (image) {
+        image.classList.add('brand-logo');
+      }
+
+      if (link) {
+        link.classList.add('brand-card-link');
+      }
+
+      grid.appendChild(item);
+    } else {
+      // Check for CTA
+      const link = item.querySelector('a');
+
+      if (link) {
+        link.classList.add('brands-main-cta');
+        footer.appendChild(item);
+      } else {
+        // Treat first non-brand item as title
+        titleWrapper.appendChild(item);
+      }
+    }
   });
-  ul.querySelectorAll('picture > img').forEach((img) => {
-    const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
-    moveInstrumentation(img, optimizedPic.querySelector('img'));
-    img.closest('picture').replaceWith(optimizedPic);
-  });
-  block.replaceChildren(ul);
+
+  // Clear original block
+  block.innerHTML = '';
+
+  // Build structure
+  block.appendChild(titleWrapper);
+  block.appendChild(grid);
+  block.appendChild(footer);
 }
