@@ -6,32 +6,23 @@
   position: relative;
   width: 100%;
   background: #f1f1f1;
-  padding: 18px 0 45px;
+  padding: 18px 0 40px;
   overflow: hidden;
 }
-
 
 /* ================================================================
    CARD CONTAINER
    ================================================================ */
 
 .promo-card.block .promo-card-inner {
-  position: relative;
-
-  display: grid;
-
-  /* Image is wider than the content card */
-  grid-template-columns: 60% 50%;
-
-  align-items: center;
-
-  width: min(1100px, calc(100% - 50px));
-
-  min-height: 620px;
-
-  margin: 0 auto;
+    position: relative;
+    display: grid;
+    grid-template-columns: 44% 58%;
+    align-items: center;
+    width: min(839px, calc(100% - 50px));
+    min-height: 450px;
+    margin: 0 auto;
 }
-
 
 /* ================================================================
    IMAGE
@@ -41,11 +32,11 @@
   position: relative;
 
   width: 100%;
-  height: 620px;
+  height: 427px;
 
   overflow: hidden;
 
-  border-radius: 0 18px 18px 18px;
+  border-radius: 0 13px 13px 13px;
 
   z-index: 1;
 }
@@ -67,34 +58,23 @@
   object-position: center;
 }
 
-
 /* ================================================================
    CONTENT CARD
    ================================================================ */
 
 .promo-card.block .promo-card-content {
-  position: relative;
-
-  z-index: 2;
-
-  display: flex;
-  flex-direction: column;
-
-  width: 100%;
-
-  min-height: 620px;
-
-  box-sizing: border-box;
-
-  padding: 65px 60px;
-
-  background: #fff;
-
-  border-radius: 18px;
-
-  box-shadow: 0 15px 30px rgb(0 0 0 / 8%);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    width: calc(97% + 50px);
+    min-height: 400px;
+    box-sizing: border-box;
+    padding: 50px 48px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 12px 25px rgb(0 0 0 / 8%);
 }
-
 
 /* ================================================================
    LEFT IMAGE VARIANT
@@ -103,16 +83,14 @@
 
 .promo-card.block.left-img .promo-card-content {
   grid-column: 1;
-
-  margin-right: -70px;
+  margin-right: -35px;
 }
 
 .promo-card.block.left-img .promo-card-image {
   grid-column: 2;
-
-  margin-top: 90px;
+  margin-top: 6.9rem;
+  transform: translateX(-10px);
 }
-
 
 /* ================================================================
    RIGHT IMAGE VARIANT
@@ -121,16 +99,13 @@
 
 .promo-card.block.right-img .promo-card-image {
   grid-column: 1;
-
-  margin-top: 90px;
+  margin-top: 40px;
 }
 
 .promo-card.block.right-img .promo-card-content {
   grid-column: 2;
-
-  margin-left: -70px;
+  margin-left: -35px;
 }
-
 
 /* ================================================================
    IMAGE / CONTENT ORDER
@@ -152,63 +127,67 @@
   order: 2;
 }
 
-
 /* ================================================================
    TITLE
    ================================================================ */
 
 .promo-card.block .promo-card-title {
-  margin: 0 0 12px;
+  margin: 0 0 10px;
 
   font-family: Roboto, Arial, sans-serif;
-  font-size: 34px;
+
+  font-size: 24px;
   font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.8px;
+
+  line-height: 1;
+  letter-spacing: 1px;
 
   color: #050505;
 }
-
 
 /* ================================================================
    SUBTITLE
    ================================================================ */
 
 .promo-card.block .promo-card-subtitle {
-  margin: 0 0 14px;
+  margin: 0 0 12px;
 
   font-family: Roboto, Arial, sans-serif;
-  font-size: 19px;
+
+  font-size: 17px;
   font-weight: 400;
+
   line-height: 1.4;
 
   color: #111;
 }
-
 
 /* ================================================================
    DESCRIPTION
    ================================================================ */
 
 .promo-card.block .promo-card-description {
-  max-width: 480px;
+  max-width: 400px;
 
   font-family: Roboto, Arial, sans-serif;
-  font-size: 18px;
+
+  font-size: 16px;
   font-weight: 400;
+
   line-height: 1.4;
 
   color: #111;
 }
 
 .promo-card.block .promo-card-description p {
-  margin: 0 0 12px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  letter-spacing: 0.7px;
 }
 
 .promo-card.block .promo-card-description p:last-child {
   margin-bottom: 0;
 }
-
 
 /* ================================================================
    CARD CTA
@@ -216,21 +195,22 @@
 
 .promo-card.block .promo-card-cta {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
   gap: 8px;
 
   width: fit-content;
-  min-width: 290px;
+  min-width: 260px;
 
-  margin-top: auto;
+  margin-top: 12.5rem;
 
-  padding: 11px 22px;
+  padding: 6px 17px;
 
   box-sizing: border-box;
 
-  border: 2px solid #111;
+  border: 1.5px solid #111;
   border-radius: 30px;
 
   background: #fff;
@@ -238,8 +218,10 @@
   color: #111;
 
   font-family: Roboto, Arial, sans-serif;
-  font-size: 16px;
+
+  font-size: 13px;
   font-weight: 600;
+  letter-spacing: 0.7px;
   line-height: 1.2;
 
   text-decoration: none;
@@ -255,7 +237,6 @@
   background: #111;
   color: #fff;
 }
-
 
 /* ================================================================
    ARROW
@@ -292,6 +273,10 @@
   transform: translateX(-22px);
 }
 
+/* ================================================================
+   ARROW HOVER
+   ================================================================ */
+
 .promo-card.block .promo-card-cta:hover .arrow-current,
 .promo-card.block .promo-card-cta:focus-visible .arrow-current,
 .promo-card.block .promo-main-cta:hover .arrow-current,
@@ -306,31 +291,33 @@
   transform: translateX(0);
 }
 
-
 /* ================================================================
    MAIN CTA
+   Optional CTA BELOW THE PROMO CARD
    ================================================================ */
 
 .promo-card.block .promo-main-cta-wrapper {
   display: flex;
+
   justify-content: center;
   align-items: center;
 
   width: 100%;
 
-  margin-top: 28px;
+  margin-top: 24px;
 }
 
 .promo-card.block .promo-main-cta {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
   gap: 8px;
 
-  min-width: 340px;
+  min-width: 300px;
 
-  padding: 12px 26px;
+  padding: 7px 17px;
 
   box-sizing: border-box;
 
@@ -342,10 +329,12 @@
   color: #fff;
 
   font-family: Roboto, Arial, sans-serif;
-  font-size: 17px;
-  font-weight: 600;
-  line-height: 1.2;
 
+  font-size: 13px;
+  font-weight: 600;
+
+  line-height: 1.2;
+letter-spacing: 1px;
   text-decoration: none;
 
   transition:
@@ -359,7 +348,6 @@
   transform: translateY(-1px);
 }
 
-
 /* ================================================================
    RESPONSIVE
    ================================================================ */
@@ -371,91 +359,94 @@
   }
 
   .promo-card.block .promo-card-inner {
-    display: flex;
-    flex-direction: column;
-
-    width: calc(100% - 32px);
-
-    min-height: auto;
+    position: relative;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    align-items: center;
+    width: min(839px, calc(100% - 50px));
+    min-height: 450px;
+    margin: 0 auto;
   }
 
-
-  /* ================================================================
+  /* ==============================================================
      IMAGE
-     ================================================================ */
+     ============================================================== */
 
   .promo-card.block .promo-card-image {
     order: 1 !important;
 
     width: 100%;
-    height: 400px;
+    height: 360px;
 
     margin: 0 !important;
 
     border-radius: 16px;
   }
 
-
-  /* ================================================================
+  /* ==============================================================
      CONTENT
-     ================================================================ */
+     ============================================================== */
 
   .promo-card.block .promo-card-content {
     order: 2 !important;
 
-    width: calc(100% - 30px);
+    width: calc(100% - 50px);
 
-    min-height: 400px;
+    min-height: 360px;
 
-    margin: -45px auto 0 !important;
+    margin: -40px auto 0 !important;
 
-    padding: 40px 30px;
+    padding: 35px 28px;
 
     border-radius: 16px;
   }
 
-
-  /* TITLE */
+  /* ==============================================================
+     TITLE
+     ============================================================== */
 
   .promo-card.block .promo-card-title {
-    font-size: 30px;
+    font-size: 28px;
   }
 
-
-  /* SUBTITLE */
+  /* ==============================================================
+     SUBTITLE
+     ============================================================== */
 
   .promo-card.block .promo-card-subtitle {
     font-size: 18px;
   }
 
-
-  /* DESCRIPTION */
+  /* ==============================================================
+     DESCRIPTION
+     ============================================================== */
 
   .promo-card.block .promo-card-description {
-    font-size: 18px;
+    font-size: 17px;
   }
 
-
-  /* CARD CTA */
+  /* ==============================================================
+     CARD CTA
+     ============================================================== */
 
   .promo-card.block .promo-card-cta {
     width: 100%;
     min-width: 0;
   }
 
-
-  /* MAIN CTA */
+  /* ==============================================================
+     MAIN CTA
+     ============================================================== */
 
   .promo-card.block .promo-main-cta-wrapper {
     margin-top: 25px;
   }
 
   .promo-card.block .promo-main-cta {
-    min-width: 300px;
+    min-width: 280px;
     max-width: calc(100% - 32px);
   }
 }
-
 
 /* ================================================================
    SMALL MOBILE
@@ -464,33 +455,34 @@
 @media (max-width: 600px) {
 
   .promo-card.block .promo-card-image {
-    height: 300px;
+    height: 280px;
   }
 
   .promo-card.block .promo-card-content {
-    min-height: 360px;
+    min-height: 340px;
 
-    padding: 32px 24px;
+    padding: 30px 22px;
   }
 
   .promo-card.block .promo-card-title {
-    font-size: 27px;
+    font-size: 25px;
   }
 
   .promo-card.block .promo-card-subtitle,
   .promo-card.block .promo-card-description {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .promo-card.block .promo-card-cta {
     min-width: 100%;
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .promo-card.block .promo-main-cta {
     width: calc(100% - 32px);
+
     min-width: 0;
 
-    font-size: 16px;
+    font-size: 15px;
   }
 }
