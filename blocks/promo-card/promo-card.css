@@ -83,14 +83,19 @@
 
 .promo-card.block.left-img .promo-card-content {
   grid-column: 1;
+  grid-row: 1;
   margin-right: -35px;
+  z-index: 2;
 }
 
 .promo-card.block.left-img .promo-card-image {
   grid-column: 2;
+  grid-row: 1;
   margin-top: 6.9rem;
   transform: translateX(-10px);
+  z-index: 1;
 }
+
 
 /* ================================================================
    RIGHT IMAGE VARIANT
@@ -99,36 +104,28 @@
 
 .promo-card.block.right-img .promo-card-image {
   grid-column: 1;
-  margin-top: 40px;
+  grid-row: 1;
+  margin-top: 6.9rem;
+  transform: translateX(10px);
+  z-index: 1;
 }
 
 .promo-card.block.right-img .promo-card-content {
   grid-column: 2;
+  grid-row: 1;
   margin-left: -35px;
+  z-index: 2;
 }
 
-/* ================================================================
-   IMAGE / CONTENT ORDER
-   ================================================================ */
 
-.promo-card.block.left-img .promo-card-content {
-  order: 1;
-}
+/*
+ * Desktop order is controlled by grid-column/grid-row.
+ */
 
-.promo-card.block.left-img .promo-card-image {
-  order: 2;
-}
-
-.promo-card.block.right-img .promo-card-image {
-  order: 1;
-}
-
-.promo-card.block.right-img .promo-card-content {
-  order: 2;
-}
 
 /* ================================================================
    TITLE
+
    ================================================================ */
 
 .promo-card.block .promo-card-title {
