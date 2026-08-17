@@ -42,7 +42,7 @@ function createCta(label, href, className = 'promo-card-cta') {
   cta.href = href;
 
   cta.innerHTML = `
-    <span>${label}</span>    
+    <span>${label}</span>
   `;
 
   return cta;
@@ -100,8 +100,27 @@ export default function decorate(block) {
   const descriptionHtml =
     descriptionRow?.innerHTML?.trim() || '';
 
-  const variant =
-    getText(variantRow).toLowerCase() || 'left-img';
+  /* -------------------------------------------------------------
+     Get variant
+     ------------------------------------------------------------- */
+
+  const variantValue = getText(variantRow)
+    .toLowerCase()
+    .trim();
+
+  /*
+   * Variant meaning:
+   *
+   * left-img  = Image LEFT + Content RIGHT
+   * right-img = Content LEFT + Image RIGHT
+   */
+
+  const variant = variantValue.includes('right')
+    ? 'right-img'
+    : 'left-img';
+
+  console.log('Authored variant:', variantValue);
+  console.log('Final variant:', variant);
 
   const ctaLabel = getText(ctaLabelRow);
   const ctaLink = getLink(ctaLinkRow);
@@ -110,12 +129,11 @@ export default function decorate(block) {
   const mainCtaLink = getLink(mainCtaLinkRow);
 
   /* -------------------------------------------------------------
-     Add variant to block
+     Add variant class to block
      ------------------------------------------------------------- */
 
-  block.classList.add(
-    variant === 'right-img' ? 'right-img' : 'left-img',
-  );
+  block.classList.remove('left-img', 'right-img');
+  block.classList.add(variant);
 
   /* -------------------------------------------------------------
      Create main card
@@ -135,14 +153,9 @@ export default function decorate(block) {
     imageContainer.className = 'promo-card-image';
 
     /*
-     * If picture exists, move the complete picture.
-     * Otherwise move the img.
+     * Move the complete picture or img into the image container.
      */
-    if (image.tagName.toLowerCase() === 'picture') {
-      imageContainer.append(image);
-    } else {
-      imageContainer.append(image);
-    }
+    imageContainer.append(image);
   }
 
   /* -------------------------------------------------------------
@@ -187,13 +200,23 @@ export default function decorate(block) {
      Arrange image/content according to variant
      ------------------------------------------------------------- */
 
-  if (variant === 'right-img') {
+  if (variant === 'left-img') {
+    /*
+     * LEFT IMAGE
+     *
+     * Image | Content
+     */
     if (imageContainer) {
       card.append(imageContainer);
     }
 
     card.append(content);
   } else {
+    /*
+     * RIGHT IMAGE
+     *
+     * Content | Image
+     */
     card.append(content);
 
     if (imageContainer) {
@@ -219,7 +242,6 @@ export default function decorate(block) {
 
   /*
    * Main CTA is optional.
-   * It is added only when both label and link exist.
    */
   if (mainCta) {
     const mainCtaWrapper = document.createElement('div');
