@@ -599,8 +599,7 @@ main > .section:has(.promo-card) > div {
     display: flex;
 
     flex-direction: column;
-
-    width: calc(100% - 64px) !important;
+width: 19rem !important;
 
     min-height: 0;
 
@@ -738,5 +737,70 @@ main > .section:has(.promo-card) > div {
     min-width: 0;
 
     box-sizing: border-box;
+  }
+}
+/* ================================================================
+   MOBILE FIX - BOTH PROMO CARD VARIANTS
+   Card ABOVE image
+   ================================================================ */
+
+@media (max-width: 768px) {
+
+  /* Force both variants to become a vertical layout */
+  .promo-card.block.left-img .promo-card-inner,
+  .promo-card.block.right-img .promo-card-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    position: relative;
+  }
+
+  /* Content/card comes FIRST */
+  .promo-card.block.left-img .promo-card-content,
+  .promo-card.block.right-img .promo-card-content {
+    order: 1 !important;
+    width: calc(100% - 64px) !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    padding: 28px 20px 24px !important;
+    transform: none !important;
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+  }
+
+  /* Image comes BELOW card */
+  .promo-card.block.left-img .promo-card-image,
+  .promo-card.block.right-img .promo-card-image {
+    order: 2 !important;
+    grid-column: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: -40px 0 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    border-radius: 0 !important;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+
+  .promo-card.block.left-img .promo-card-image picture,
+  .promo-card.block.right-img .promo-card-image picture {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .promo-card.block.left-img .promo-card-image img,
+  .promo-card.block.right-img .promo-card-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
   }
 }
