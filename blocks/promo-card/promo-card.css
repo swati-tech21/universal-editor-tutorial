@@ -522,3 +522,127 @@ letter-spacing: 1px;
     font-size: 15px;
   }
 }
+
+/* =========================================================
+   MOBILE - IMAGE TOP + CONTENT OVERLAPPING IMAGE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .promo-card.block {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Inner container */
+  .promo-card.block .promo-card-inner {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+  }
+
+  /* =====================================================
+     IMAGE
+     ===================================================== */
+
+  .promo-card.block .promo-card-image {
+    order: 1;
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+
+  .promo-card.block .promo-card-image picture {
+    display: block;
+    width: 100%;
+  }
+
+  .promo-card.block .promo-card-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* =====================================================
+     CONTENT CARD
+     ===================================================== */
+
+  .promo-card.block .promo-card-content {
+    order: 2;
+
+    position: relative;
+    z-index: 2;
+
+    width: calc(100% - 64px);
+    margin: -100px auto 0;
+
+    padding: 40px 30px 30px;
+
+    box-sizing: border-box;
+
+    background: #fff;
+    border-radius: 24px;
+
+    box-shadow: 0 8px 25px rgb(0 0 0 / 8%);
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* =====================================================
+     TITLE
+     ===================================================== */
+
+  .promo-card.block .promo-card-title {
+    margin: 0 0 16px;
+  }
+
+  /* =====================================================
+     DESCRIPTION
+     ===================================================== */
+
+  .promo-card.block .promo-card-description {
+    margin-bottom: 24px;
+  }
+
+  /* =====================================================
+     CARD CTA
+     ===================================================== */
+
+  .promo-card.block .promo-card-cta {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto;
+  }
+
+  /* =====================================================
+     MAIN CTA
+     ===================================================== */
+
+  .promo-card.block .promo-main-cta-wrapper {
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  .promo-card.block .promo-main-cta {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* =====================================================
+     BOTH VARIANTS
+     ===================================================== */
+
+  .promo-card.block.left-img .promo-card-image,
+  .promo-card.block.right-img .promo-card-image {
+    order: 1;
+  }
+
+  .promo-card.block.left-img .promo-card-content,
+  .promo-card.block.right-img .promo-card-content {
+    order: 2;
+  }
+}
