@@ -142,24 +142,21 @@
     ]
   },
   {
-    "id": "brand-cards",
-    "fields": []
-  },
-  {
-    "id": "brand-card",
+    "id": "brand",
     "fields": [
       {
         "component": "reference",
         "valueType": "string",
         "name": "image",
-        "label": "Brand Logo",
+        "label": "Image",
         "multi": false
       },
       {
         "component": "aem-content",
-        "valueType": "string",
-        "name": "link",
-        "label": "Link"
+        "name": "imageLink",
+        "value": "",
+        "label": "Image Link",
+        "valueType": "string"
       }
     ]
   },
