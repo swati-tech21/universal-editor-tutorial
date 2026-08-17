@@ -45,7 +45,7 @@
   position: relative;
 
   width: 108%;
-  height: 427px;
+  height: 430px;
 
   overflow: hidden;
 
@@ -159,7 +159,7 @@
 
 .promo-card.block.right-img .promo-card-content {
   order: 2;
-  transform: translateX(-43px);
+  transform: translateX(-10px);
 }
 
 /* ================================================================
