@@ -16,9 +16,8 @@
       "cards",
       "columns",
       "fragment",
-      "brand-card",
-      "promo-card",
-      "feature-card"
+      "feature-card",
+      "promo-card"
     ]
   },
   {
