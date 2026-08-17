@@ -1,69 +1,71 @@
 export default function decorate(block) {
   const rows = [...block.children];
 
-  if (!rows.length) return;
+  // Parent fields
+  const title = rows[0]?.textContent.trim();
+  const ctaLabel = rows[1]?.textContent.trim();
+  const ctaLink = rows[2]?.querySelector('a')?.href || '';
 
-  const titleRow = rows[0];
+  // Get brand items
+  const brandItems = [...block.children].filter((row) =>
+    row.classList.contains('brand')
+  );
 
-  const titleText =
-    titleRow?.querySelector('h1, h2, h3, h4, h5, h6, p')?.textContent?.trim();
+  // If EDS doesn't add the class, use rows after parent fields
+  const items = brandItems.length
+    ? brandItems
+    : rows.slice(3);
 
-  const title = document.createElement('h2');
-  title.className = 'brands-title';
-  title.textContent = titleText || 'Explore Our Brands';
+  // Create title
+  block.innerHTML = '';
 
+  if (title) {
+    const heading = document.createElement('h2');
+    heading.textContent = title;
+    block.append(heading);
+  }
+
+  // Cards wrapper
   const grid = document.createElement('div');
   grid.className = 'brands-grid';
 
-  const brandRows = rows.slice(1);
-
-  brandRows.forEach((row) => {
-    const image = row.querySelector('picture, img');
-    const link = row.querySelector('a');
+  items.forEach((item) => {
+    const image = item.querySelector('img');
+    const link = item.querySelector('a');
 
     if (!image) return;
 
     const card = document.createElement('div');
     card.className = 'brand-card';
 
-    const cardLink = document.createElement('a');
+    if (link) {
+      const anchor = document.createElement('a');
+      anchor.href = link.href;
+      anchor.target = link.target || '_self';
+      anchor.rel = link.rel || '';
 
-    cardLink.className = 'brand-card-link';
-
-    if (link?.href) {
-      cardLink.href = link.href;
+      anchor.append(image);
+      card.append(anchor);
     } else {
-      cardLink.href = '#';
+      card.append(image);
     }
 
-    cardLink.appendChild(image.cloneNode(true));
-
-    card.appendChild(cardLink);
-    grid.appendChild(card);
+    grid.append(card);
   });
 
-  const cta = document.createElement('a');
-  cta.className = 'brands-view-all';
-  cta.textContent = 'View All';
+  block.append(grid);
 
-  /*
-   * Try to find the parent CTA.
-   */
-  const parentLink = titleRow.querySelector('a');
+  // View All CTA
+  if (ctaLabel && ctaLink) {
+    const ctaWrapper = document.createElement('div');
+    ctaWrapper.className = 'brands-cta';
 
-  if (parentLink?.href) {
-    cta.href = parentLink.href;
-  } else {
-    cta.href = '#';
+    const cta = document.createElement('a');
+    cta.href = ctaLink;
+    cta.textContent = ctaLabel;
+    cta.className = 'button';
+
+    ctaWrapper.append(cta);
+    block.append(ctaWrapper);
   }
-
-  const ctaContainer = document.createElement('div');
-  ctaContainer.className = 'brands-cta';
-  ctaContainer.appendChild(cta);
-
-  block.innerHTML = '';
-
-  block.appendChild(title);
-  block.appendChild(grid);
-  block.appendChild(ctaContainer);
 }

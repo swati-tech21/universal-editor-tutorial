@@ -1,20 +1,15 @@
-.brands.block {
+.brands {
+  padding: 60px 20px 50px;
   background: #f5f5f5;
-  padding: 60px 40px 70px;
-  text-align: center;
 }
 
-/* Heading */
-
-.brands-title {
+.brands > h2 {
   margin: 0 0 40px;
-  font-size: 40px;
+  text-align: center;
+  font-size: 36px;
   line-height: 1.2;
   font-weight: 700;
-  text-align: center;
 }
-
-/* Grid */
 
 .brands-grid {
   max-width: 760px;
@@ -24,12 +19,10 @@
   gap: 24px;
 }
 
-/* Individual card */
-
 .brand-card {
   background: #fff;
   border-radius: 18px;
-  min-height: 235px;
+  min-height: 238px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,18 +30,14 @@
   box-shadow: 0 8px 20px rgb(0 0 0 / 8%);
 }
 
-/* Link */
-
-.brand-card-link {
+.brand-card a {
   width: 100%;
   height: 100%;
-  min-height: 235px;
+  min-height: 238px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-/* Logo */
 
 .brand-card img {
   display: block;
@@ -57,112 +46,49 @@
   object-fit: contain;
 }
 
-/* View All */
-
 .brands-cta {
-  margin-top: 34px;
+  margin-top: 32px;
   display: flex;
   justify-content: center;
 }
 
-.brands-view-all {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 340px;
-  min-height: 48px;
-
+.brands-cta .button {
+  min-width: 340px;
+  padding: 10px 30px;
   border: 2px solid #111;
   border-radius: 30px;
-
-  background: #fff;
-
+  background: transparent;
   color: #111;
+  text-align: center;
   text-decoration: none;
-
-  font-size: 18px;
   font-weight: 600;
+  font-size: 18px;
 }
 
-.brands-view-all:hover {
-  background: #111;
-  color: #fff;
-}
-
-/* Tablet */
-
-@media (max-width: 900px) {
-  .brands.block {
-    padding: 50px 24px 60px;
-  }
-
-  .brands-title {
-    font-size: 34px;
-  }
-
-  .brands-grid {
-    max-width: 650px;
-    gap: 20px;
-  }
-
-  .brand-card {
-    min-height: 200px;
-  }
-
-  .brand-card-link {
-    min-height: 200px;
-  }
-}
-
-/* Mobile */
-
-@media (max-width: 600px) {
-  .brands.block {
-    padding: 40px 20px 50px;
-  }
-
-  .brands-title {
-    font-size: 28px;
-    margin-bottom: 28px;
-  }
-
+@media (max-width: 768px) {
   .brands-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
   }
 
   .brand-card {
-    min-height: 160px;
-    border-radius: 14px;
+    min-height: 190px;
   }
 
-  .brand-card-link {
-    min-height: 160px;
+  .brand-card a {
+    min-height: 190px;
   }
 
-  .brand-card img {
-    width: 80%;
-    height: 70%;
-  }
-
-  .brands-view-all {
-    width: 100%;
+  .brands > h2 {
+    font-size: 30px;
   }
 }
 
-/* Very small screens */
-
-@media (max-width: 400px) {
+@media (max-width: 480px) {
   .brands-grid {
     grid-template-columns: 1fr;
   }
 
-  .brand-card {
-    min-height: 180px;
-  }
-
-  .brand-card-link {
-    min-height: 180px;
+  .brands-cta .button {
+    min-width: 260px;
   }
 }
