@@ -15,9 +15,13 @@
       "hero",
       "cards",
       "columns",
-      "fragment",
-      "promo-card",
-      "feature-card"
+      "fragment"
+    ]
+  },
+  {
+    "id": "brand-cards",
+    "components": [
+      "brand-card"
     ]
   },
   {
