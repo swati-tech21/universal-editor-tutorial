@@ -88,7 +88,7 @@
 
 .promo-card.block.left-img .promo-card-image {
   grid-column: 2;
-  margin-top: 6.9rem;
+  margin-top: 7.9rem;
   transform: translateX(-10px);
 }
 
@@ -315,7 +315,7 @@
 
   gap: 8px;
 
-  min-width: 300px;
+  min-width: 236px;
 
   padding: 7px 17px;
 
