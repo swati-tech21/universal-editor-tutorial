@@ -44,5 +44,11 @@
     "components": [
       "feature-card"
     ]
+  },
+  {
+    "id": "hero",
+    "components": [
+      "hero"
+    ]
   }
 ]
