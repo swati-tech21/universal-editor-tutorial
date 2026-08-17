@@ -36,7 +36,7 @@
 
   overflow: hidden;
 
-  border-radius: 0 13px 13px 13px;
+  border-radius: 13px 13px 13px 13px;
 
   z-index: 1;
 }
@@ -134,7 +134,9 @@
 }
 
 .promo-card.block.right-img .promo-card-image {
-  order: 1;
+    order: 1;
+    grid-column: 1;
+    margin-top: 7.9rem;
 }
 
 .promo-card.block.right-img .promo-card-content {
