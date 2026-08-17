@@ -1,0 +1,268 @@
+/**
+ * Get the text content of a row safely.
+ */
+function getText(row) {
+  return row?.textContent?.trim() || '';
+}
+
+/**
+ * Get the first link from a row.
+ * Falls back to the text value if no <a> exists.
+ */
+function getLink(row) {
+  const link = row?.querySelector('a');
+
+  if (link?.href) {
+    return link.href;
+  }
+
+  const text = getText(row);
+
+  if (!text) {
+    return '';
+  }
+
+  if (/^(https?:\/\/|\/|#)/i.test(text)) {
+    return text;
+  }
+
+  return `https://${text}`;
+}
+
+/**
+ * Create CTA button.
+ */
+function createCta(label, href, className = 'promo-card-cta') {
+  if (!label || !href) {
+    return null;
+  }
+
+  const cta = document.createElement('a');
+  cta.className = className;
+  cta.href = href;
+
+  cta.innerHTML = `
+    <span>${label}</span>
+
+    <span class="arrow-wrapper" aria-hidden="true">
+      <svg class="arrow arrow-current" viewBox="0 0 24 24">
+        <path
+          d="M3 12H19"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        ></path>
+
+        <path
+          d="M13 6L19 12L13 18"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linejoin="miter"
+        ></path>
+      </svg>
+
+      <svg class="arrow arrow-next" viewBox="0 0 24 24">
+        <path
+          d="M3 12H19"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        ></path>
+
+        <path
+          d="M13 6L19 12L13 18"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linejoin="miter"
+        ></path>
+      </svg>
+    </span>
+  `;
+
+  return cta;
+}
+
+/**
+ * Get image from the image row.
+ */
+function getImage(row) {
+  return row?.querySelector('picture, img') || null;
+}
+
+export default function decorate(block) {
+  const rows = [...block.children];
+
+  if (!rows.length) {
+    return;
+  }
+
+  /*
+   * Expected Universal Editor model order:
+   *
+   * 0 - Image
+   * 1 - Title
+   * 2 - Subtitle
+   * 3 - Description
+   * 4 - Variant
+   * 5 - CTA Label
+   * 6 - CTA Link
+   * 7 - Main CTA Label
+   * 8 - Main CTA Link
+   */
+
+  const [
+    imageRow,
+    titleRow,
+    subtitleRow,
+    descriptionRow,
+    variantRow,
+    ctaLabelRow,
+    ctaLinkRow,
+    mainCtaLabelRow,
+    mainCtaLinkRow,
+  ] = rows;
+
+  /* -------------------------------------------------------------
+     Get authored values safely
+     ------------------------------------------------------------- */
+
+  const image = getImage(imageRow);
+
+  const title = getText(titleRow);
+  const subtitle = getText(subtitleRow);
+
+  const descriptionHtml =
+    descriptionRow?.innerHTML?.trim() || '';
+
+  const variant =
+    getText(variantRow).toLowerCase() || 'left-img';
+
+  const ctaLabel = getText(ctaLabelRow);
+  const ctaLink = getLink(ctaLinkRow);
+
+  const mainCtaLabel = getText(mainCtaLabelRow);
+  const mainCtaLink = getLink(mainCtaLinkRow);
+
+  /* -------------------------------------------------------------
+     Add variant to block
+     ------------------------------------------------------------- */
+
+  block.classList.add(
+    variant === 'right-img' ? 'right-img' : 'left-img',
+  );
+
+  /* -------------------------------------------------------------
+     Create main card
+     ------------------------------------------------------------- */
+
+  const card = document.createElement('div');
+  card.className = 'promo-card-inner';
+
+  /* -------------------------------------------------------------
+     Image
+     ------------------------------------------------------------- */
+
+  let imageContainer = null;
+
+  if (image) {
+    imageContainer = document.createElement('div');
+    imageContainer.className = 'promo-card-image';
+
+    /*
+     * If picture exists, move the complete picture.
+     * Otherwise move the img.
+     */
+    if (image.tagName.toLowerCase() === 'picture') {
+      imageContainer.append(image);
+    } else {
+      imageContainer.append(image);
+    }
+  }
+
+  /* -------------------------------------------------------------
+     Content
+     ------------------------------------------------------------- */
+
+  const content = document.createElement('div');
+  content.className = 'promo-card-content';
+
+  if (title) {
+    const titleElement = document.createElement('h2');
+    titleElement.className = 'promo-card-title';
+    titleElement.textContent = title;
+    content.append(titleElement);
+  }
+
+  if (subtitle) {
+    const subtitleElement = document.createElement('div');
+    subtitleElement.className = 'promo-card-subtitle';
+    subtitleElement.textContent = subtitle;
+    content.append(subtitleElement);
+  }
+
+  if (descriptionHtml) {
+    const descriptionElement = document.createElement('div');
+    descriptionElement.className = 'promo-card-description';
+    descriptionElement.innerHTML = descriptionHtml;
+    content.append(descriptionElement);
+  }
+
+  /* -------------------------------------------------------------
+     Card CTA
+     ------------------------------------------------------------- */
+
+  const cardCta = createCta(ctaLabel, ctaLink);
+
+  if (cardCta) {
+    content.append(cardCta);
+  }
+
+  /* -------------------------------------------------------------
+     Arrange image/content according to variant
+     ------------------------------------------------------------- */
+
+  if (variant === 'right-img') {
+    if (imageContainer) {
+      card.append(imageContainer);
+    }
+
+    card.append(content);
+  } else {
+    card.append(content);
+
+    if (imageContainer) {
+      card.append(imageContainer);
+    }
+  }
+
+  /* -------------------------------------------------------------
+     Main CTA
+     ------------------------------------------------------------- */
+
+  const mainCta = createCta(
+    mainCtaLabel,
+    mainCtaLink,
+    'promo-main-cta',
+  );
+
+  /* -------------------------------------------------------------
+     Replace original authored markup
+     ------------------------------------------------------------- */
+
+  block.replaceChildren(card);
+
+  /*
+   * Main CTA is optional.
+   * It is added only when both label and link exist.
+   */
+  if (mainCta) {
+    const mainCtaWrapper = document.createElement('div');
+    mainCtaWrapper.className = 'promo-main-cta-wrapper';
+
+    mainCtaWrapper.append(mainCta);
+
+    block.append(mainCtaWrapper);
+  }
+}
