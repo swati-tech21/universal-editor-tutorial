@@ -14,7 +14,7 @@
    CARD CONTAINER
    ================================================================ */
 
-.promo-card.block .promo-card-inner {
+.promo-card.block.left-img .promo-card-inner {
     position: relative;
     display: grid;
     grid-template-columns: 44% 58%;
@@ -28,7 +28,7 @@
    IMAGE
    ================================================================ */
 
-.promo-card.block .left-img .promo-card-image {
+.promo-card.block.left-img .promo-card-image {
   position: relative;
 
   width: 100%;
@@ -41,14 +41,14 @@
   z-index: 1;
 }
 
-.promo-card.block .promo-card-image picture {
+.promo-card.block.left-img .promo-card-image picture {
   display: block;
 
   width: 100%;
   height: 100%;
 }
 
-.promo-card.block .promo-card-image img {
+.promo-card.block.left-img .promo-card-image img {
   display: block;
 
   width: 100%;
@@ -62,7 +62,7 @@
    CONTENT CARD
    ================================================================ */
 
-.promo-card.block .promo-card-content {
+.promo-card.block.left-img .promo-card-content {
     position: relative;
     z-index: 2;
     display: flex;
