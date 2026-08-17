@@ -142,45 +142,20 @@
     ]
   },
   {
-    "id": "brands",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "label": "Title"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "mainCtaLabel",
-        "label": "Main CTA Label",
-        "value": "View All"
-      },
-      {
-        "component": "aem-content",
-        "name": "mainCtaLink",
-        "value": "",
-        "label": "Main CTA Link",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
     "id": "brand",
     "fields": [
       {
         "component": "reference",
         "valueType": "string",
         "name": "image",
-        "label": "Brand Logo",
+        "label": "Image",
         "multi": false
       },
       {
         "component": "aem-content",
         "name": "imageLink",
         "value": "",
-        "label": "Brand Link",
+        "label": "Image Link",
         "valueType": "string"
       }
     ]
