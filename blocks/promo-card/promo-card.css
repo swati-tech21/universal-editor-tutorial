@@ -120,6 +120,11 @@
 
   z-index: 2;
 } */
+ .promo-card.block.right-img .promo-card-inner{
+  display: grid;
+  grid-template-columns: 55% 45%;
+  align-items: center;
+ }
 
 /* ================================================================
    IMAGE / CONTENT ORDER
