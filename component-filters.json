@@ -15,7 +15,10 @@
       "hero",
       "cards",
       "columns",
-      "fragment"
+      "fragment",
+      "brand-card",
+      "promo-card",
+      "feature-card"
     ]
   },
   {
