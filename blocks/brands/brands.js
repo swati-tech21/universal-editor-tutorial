@@ -1,33 +1,23 @@
+import { createOptimizedPicture } from '../../scripts/aem.js';
+import { moveInstrumentation } from '../../scripts/scripts.js';
+
 export default function decorate(block) {
-  const images = [...block.querySelectorAll('img')];
-
-  const heading = block.querySelector('h2, h3, h4, p');
-
-  const grid = document.createElement('div');
-  grid.className = 'brands-grid';
-
-  images.forEach((image) => {
-    const card = document.createElement('div');
-    card.className = 'brand-card';
-
-    const link = image.closest('a');
-
-    if (link) {
-      const newLink = link.cloneNode(false);
-      newLink.appendChild(image);
-      card.appendChild(newLink);
-    } else {
-      card.appendChild(image);
-    }
-
-    grid.appendChild(card);
+  /* change to ul, li */
+  const ul = document.createElement('ul');
+  [...block.children].forEach((row) => {
+    const li = document.createElement('li');
+    moveInstrumentation(row, li);
+    while (row.firstElementChild) li.append(row.firstElementChild);
+    [...li.children].forEach((div) => {
+      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
+      else div.className = 'cards-card-body';
+    });
+    ul.append(li);
   });
-
-  block.innerHTML = '';
-
-  if (heading) {
-    block.appendChild(heading);
-  }
-
-  block.appendChild(grid);
+  ul.querySelectorAll('picture > img').forEach((img) => {
+    const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
+    moveInstrumentation(img, optimizedPic.querySelector('img'));
+    img.closest('picture').replaceWith(optimizedPic);
+  });
+  block.replaceChildren(ul);
 }
