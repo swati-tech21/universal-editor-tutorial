@@ -160,7 +160,7 @@
 .promo-card.block.right-img .promo-card-content {
   order: 2;
   transform: translateX(-10px);
-  min-height: 300px;
+  height: 427px;
 }
 
 /* ================================================================
