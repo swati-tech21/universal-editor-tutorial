@@ -1,54 +1,69 @@
 export default function decorate(block) {
-  const items = [...block.children];
+  const rows = [...block.children];
 
-  if (!items.length) return;
+  if (!rows.length) return;
 
-  // Create wrappers
-  const titleWrapper = document.createElement('div');
-  titleWrapper.className = 'brands-header';
+  const titleRow = rows[0];
+
+  const titleText =
+    titleRow?.querySelector('h1, h2, h3, h4, h5, h6, p')?.textContent?.trim();
+
+  const title = document.createElement('h2');
+  title.className = 'brands-title';
+  title.textContent = titleText || 'Explore Our Brands';
 
   const grid = document.createElement('div');
   grid.className = 'brands-grid';
 
-  const footer = document.createElement('div');
-  footer.className = 'brands-footer';
+  const brandRows = rows.slice(1);
 
-  items.forEach((item) => {
-    // Brand item
-    if (item.classList.contains('brand')) {
-      item.classList.add('brand-card');
+  brandRows.forEach((row) => {
+    const image = row.querySelector('picture, img');
+    const link = row.querySelector('a');
 
-      const image = item.querySelector('img');
-      const link = item.querySelector('a');
+    if (!image) return;
 
-      if (image) {
-        image.classList.add('brand-logo');
-      }
+    const card = document.createElement('div');
+    card.className = 'brand-card';
 
-      if (link) {
-        link.classList.add('brand-card-link');
-      }
+    const cardLink = document.createElement('a');
 
-      grid.appendChild(item);
+    cardLink.className = 'brand-card-link';
+
+    if (link?.href) {
+      cardLink.href = link.href;
     } else {
-      // Check for CTA
-      const link = item.querySelector('a');
-
-      if (link) {
-        link.classList.add('brands-main-cta');
-        footer.appendChild(item);
-      } else {
-        // Treat first non-brand item as title
-        titleWrapper.appendChild(item);
-      }
+      cardLink.href = '#';
     }
+
+    cardLink.appendChild(image.cloneNode(true));
+
+    card.appendChild(cardLink);
+    grid.appendChild(card);
   });
 
-  // Clear original block
+  const cta = document.createElement('a');
+  cta.className = 'brands-view-all';
+  cta.textContent = 'View All';
+
+  /*
+   * Try to find the parent CTA.
+   */
+  const parentLink = titleRow.querySelector('a');
+
+  if (parentLink?.href) {
+    cta.href = parentLink.href;
+  } else {
+    cta.href = '#';
+  }
+
+  const ctaContainer = document.createElement('div');
+  ctaContainer.className = 'brands-cta';
+  ctaContainer.appendChild(cta);
+
   block.innerHTML = '';
 
-  // Build structure
-  block.appendChild(titleWrapper);
+  block.appendChild(title);
   block.appendChild(grid);
-  block.appendChild(footer);
+  block.appendChild(ctaContainer);
 }
