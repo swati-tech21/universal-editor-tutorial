@@ -1,11 +1,16 @@
 /* ================================================================
-   PROMO CARD
+   REMOVE SECTION PADDING
    ================================================================ */
 
 main > .section:has(.promo-card) > div {
   padding-left: 0;
   padding-right: 0;
 }
+
+
+/* ================================================================
+   PROMO CARD
+   ================================================================ */
 
 .promo-card.block {
   position: relative;
@@ -66,6 +71,7 @@ main > .section:has(.promo-card) > div {
 .promo-card.block .promo-card-content {
   position: relative;
   z-index: 2;
+
   display: flex;
   flex-direction: column;
 
@@ -85,6 +91,7 @@ main > .section:has(.promo-card) > div {
 
 /* ================================================================
    LEFT IMAGE VARIANT
+   Desktop:
    Text LEFT + Image RIGHT
    ================================================================ */
 
@@ -104,6 +111,7 @@ main > .section:has(.promo-card) > div {
 
 /* ================================================================
    RIGHT IMAGE VARIANT
+   Desktop:
    Image LEFT + Text RIGHT
    ================================================================ */
 
@@ -147,6 +155,7 @@ main > .section:has(.promo-card) > div {
   margin: 0 0 10px;
 
   font-family: Roboto, Arial, sans-serif;
+
   font-size: 24px;
   font-weight: 700;
 
@@ -165,6 +174,7 @@ main > .section:has(.promo-card) > div {
   margin: 0 0 12px;
 
   font-family: Roboto, Arial, sans-serif;
+
   font-size: 17px;
   font-weight: 400;
 
@@ -182,6 +192,7 @@ main > .section:has(.promo-card) > div {
   max-width: 400px;
 
   font-family: Roboto, Arial, sans-serif;
+
   font-size: 16px;
   font-weight: 400;
 
@@ -208,8 +219,10 @@ main > .section:has(.promo-card) > div {
 
 .promo-card.block .promo-card-cta {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
+
   gap: 8px;
 
   width: fit-content;
@@ -228,6 +241,7 @@ main > .section:has(.promo-card) > div {
   color: #111;
 
   font-family: Roboto, Arial, sans-serif;
+
   font-size: 13px;
   font-weight: 600;
 
@@ -311,6 +325,7 @@ main > .section:has(.promo-card) > div {
 
 .promo-card.block .promo-main-cta-wrapper {
   display: flex;
+
   justify-content: center;
   align-items: center;
 
@@ -321,8 +336,10 @@ main > .section:has(.promo-card) > div {
 
 .promo-card.block .promo-main-cta {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
+
   gap: 8px;
 
   min-width: 236px;
@@ -338,6 +355,7 @@ main > .section:has(.promo-card) > div {
   color: #fff;
 
   font-family: Roboto, Arial, sans-serif;
+
   font-size: 13px;
   font-weight: 600;
 
@@ -372,6 +390,7 @@ main > .section:has(.promo-card) > div {
     position: relative;
 
     display: grid;
+
     grid-template-columns: 45% 55%;
 
     align-items: center;
@@ -384,9 +403,7 @@ main > .section:has(.promo-card) > div {
   }
 
 
-  /* --------------------------------------------------------------
-     IMAGE
-     -------------------------------------------------------------- */
+  /* IMAGE */
 
   .promo-card.block .promo-card-image {
     order: 1 !important;
@@ -400,9 +417,7 @@ main > .section:has(.promo-card) > div {
   }
 
 
-  /* --------------------------------------------------------------
-     CONTENT
-     -------------------------------------------------------------- */
+  /* CONTENT */
 
   .promo-card.block .promo-card-content {
     order: 2 !important;
@@ -419,65 +434,53 @@ main > .section:has(.promo-card) > div {
   }
 
 
-  /* --------------------------------------------------------------
-     BOTH VARIANTS
-     Tablet
-     Image top + content overlapping image
-     -------------------------------------------------------------- */
+  /* LEFT IMAGE */
 
-  .promo-card.block.left-img .promo-card-image,
-  .promo-card.block.right-img .promo-card-image {
+  .promo-card.block.left-img .promo-card-image {
     grid-column: 1;
-
-    order: 1 !important;
-
-    margin: 0 !important;
   }
 
-  .promo-card.block.left-img .promo-card-content,
+  .promo-card.block.left-img .promo-card-content {
+    grid-column: 1 / -1;
+  }
+
+
+  /* RIGHT IMAGE */
+
+  .promo-card.block.right-img .promo-card-image {
+    grid-column: 1;
+  }
+
   .promo-card.block.right-img .promo-card-content {
     grid-column: 1 / -1;
 
-    order: 2 !important;
-
     transform: none;
-
     height: auto;
-
-    margin: -40px 0 0 !important;
   }
 
 
-  /* --------------------------------------------------------------
-     TITLE
-     -------------------------------------------------------------- */
+  /* TITLE */
 
   .promo-card.block .promo-card-title {
     font-size: 28px;
   }
 
 
-  /* --------------------------------------------------------------
-     SUBTITLE
-     -------------------------------------------------------------- */
+  /* SUBTITLE */
 
   .promo-card.block .promo-card-subtitle {
     font-size: 18px;
   }
 
 
-  /* --------------------------------------------------------------
-     DESCRIPTION
-     -------------------------------------------------------------- */
+  /* DESCRIPTION */
 
   .promo-card.block .promo-card-description {
     font-size: 17px;
   }
 
 
-  /* --------------------------------------------------------------
-     CARD CTA
-     -------------------------------------------------------------- */
+  /* CARD CTA */
 
   .promo-card.block .promo-card-cta {
     width: 100%;
@@ -485,9 +488,7 @@ main > .section:has(.promo-card) > div {
   }
 
 
-  /* --------------------------------------------------------------
-     MAIN CTA
-     -------------------------------------------------------------- */
+  /* MAIN CTA */
 
   .promo-card.block .promo-main-cta-wrapper {
     margin-top: 25px;
@@ -502,16 +503,19 @@ main > .section:has(.promo-card) > div {
 
 /* ================================================================
    MOBILE
-   Card TOP
-   Image BELOW
    ================================================================ */
 
 @media (max-width: 768px) {
+
+  /* --------------------------------------------------------------
+     PROMO CARD
+     -------------------------------------------------------------- */
 
   .promo-card.block {
     width: 100%;
 
     padding: 0;
+
     margin: 0;
 
     overflow: visible;
@@ -531,67 +535,60 @@ main > .section:has(.promo-card) > div {
 
     min-height: 0;
 
+    margin: 0;
+
     position: relative;
   }
 
 
-  /* --------------------------------------------------------------
-     IMAGE
-     Mobile:
-     Card FIRST
-     Image SECOND
-     -------------------------------------------------------------- */
+  /* ==============================================================
+     COMMON IMAGE
+     ============================================================== */
 
   .promo-card.block .promo-card-image {
-    order: 2 !important;
-
-    grid-column: auto;
-
     width: 100% !important;
 
-    height: auto;
+    height: auto !important;
 
     min-height: 0;
 
-    margin: -40px 0 0 !important;
-
     padding: 0;
+
+    margin: 0 !important;
 
     transform: none !important;
 
-    border-radius: 0;
-
     overflow: hidden;
+
+    border-radius: 0;
 
     z-index: 1;
   }
 
-  .promo-card.block .promo-card-image picture,
-  .promo-card.block .promo-card-image img {
-    display: block;
-    width: 100%;
-  }
-
   .promo-card.block .promo-card-image picture {
+    display: block;
+
+    width: 100%;
+
     height: auto;
   }
 
   .promo-card.block .promo-card-image img {
+    display: block;
+
+    width: 100%;
+
     height: auto;
 
     object-fit: cover;
   }
 
 
-  /* --------------------------------------------------------------
-     CONTENT CARD
-     Mobile:
-     Card is ABOVE image
-     -------------------------------------------------------------- */
+  /* ==============================================================
+     COMMON CONTENT CARD
+     ============================================================== */
 
   .promo-card.block .promo-card-content {
-    order: 1 !important;
-
     position: relative;
 
     z-index: 2;
@@ -599,15 +596,14 @@ main > .section:has(.promo-card) > div {
     display: flex;
 
     flex-direction: column;
-width: 19rem !important;
+
+    width: calc(100% - 64px) !important;
 
     min-height: 0;
 
-    margin: 0 auto !important;
+    box-sizing: border-box;
 
     padding: 28px 20px 24px;
-
-    box-sizing: border-box;
 
     background: #fff;
 
@@ -621,26 +617,18 @@ width: 19rem !important;
   }
 
 
-  /* --------------------------------------------------------------
-     BOTH VARIANTS
-     Mobile:
-     Card TOP
-     Image BELOW
-     -------------------------------------------------------------- */
+  /* ==============================================================
+     LEFT IMAGE VARIANT
+     
+     MOBILE:
+     
+     CARD
+       ↓
+     IMAGE
+     
+     ============================================================== */
 
-  .promo-card.block.left-img .promo-card-image,
-  .promo-card.block.right-img .promo-card-image {
-    order: 2 !important;
-
-    grid-column: auto;
-
-    margin: -40px 0 0 !important;
-
-    transform: none !important;
-  }
-
-  .promo-card.block.left-img .promo-card-content,
-  .promo-card.block.right-img .promo-card-content {
+  .promo-card.block.left-img .promo-card-content {
     order: 1 !important;
 
     grid-column: auto;
@@ -652,10 +640,70 @@ width: 19rem !important;
     height: auto !important;
   }
 
+  .promo-card.block.left-img .promo-card-image {
+    order: 2 !important;
 
-  /* --------------------------------------------------------------
+    grid-column: auto;
+
+    margin: -40px 0 0 !important;
+
+    transform: none !important;
+
+    width: 100% !important;
+
+    height: auto !important;
+
+    z-index: 1;
+  }
+
+
+  /* ==============================================================
+     RIGHT IMAGE VARIANT
+     
+     MOBILE:
+     
+     IMAGE
+       ↓
+     CARD
+     
+     ============================================================== */
+
+  .promo-card.block.right-img .promo-card-image {
+    order: 1 !important;
+
+    grid-column: auto;
+
+    width: 100% !important;
+
+    height: auto !important;
+
+    margin: 0 !important;
+
+    transform: none !important;
+
+    z-index: 1;
+  }
+
+  .promo-card.block.right-img .promo-card-content {
+    order: 2 !important;
+
+    grid-column: auto;
+
+    width: calc(100% - 64px) !important;
+
+    margin: -40px auto 0 !important;
+
+    transform: none !important;
+
+    height: auto !important;
+
+    z-index: 2;
+  }
+
+
+  /* ==============================================================
      TITLE
-     -------------------------------------------------------------- */
+     ============================================================== */
 
   .promo-card.block .promo-card-title {
     margin: 0 0 10px;
@@ -668,9 +716,9 @@ width: 19rem !important;
   }
 
 
-  /* --------------------------------------------------------------
+  /* ==============================================================
      SUBTITLE
-     -------------------------------------------------------------- */
+     ============================================================== */
 
   .promo-card.block .promo-card-subtitle {
     margin-bottom: 12px;
@@ -681,9 +729,9 @@ width: 19rem !important;
   }
 
 
-  /* --------------------------------------------------------------
+  /* ==============================================================
      DESCRIPTION
-     -------------------------------------------------------------- */
+     ============================================================== */
 
   .promo-card.block .promo-card-description {
     max-width: none;
@@ -700,9 +748,9 @@ width: 19rem !important;
   }
 
 
-  /* --------------------------------------------------------------
+  /* ==============================================================
      CARD CTA
-     -------------------------------------------------------------- */
+     ============================================================== */
 
   .promo-card.block .promo-card-cta {
     width: 100%;
@@ -717,9 +765,9 @@ width: 19rem !important;
   }
 
 
-  /* --------------------------------------------------------------
+  /* ==============================================================
      MAIN CTA
-     -------------------------------------------------------------- */
+     ============================================================== */
 
   .promo-card.block .promo-main-cta-wrapper {
     width: 100%;
@@ -737,70 +785,5 @@ width: 19rem !important;
     min-width: 0;
 
     box-sizing: border-box;
-  }
-}
-/* ================================================================
-   MOBILE FIX - BOTH PROMO CARD VARIANTS
-   Card ABOVE image
-   ================================================================ */
-
-@media (max-width: 768px) {
-
-  /* Force both variants to become a vertical layout */
-  .promo-card.block.left-img .promo-card-inner,
-  .promo-card.block.right-img .promo-card-inner {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    min-height: 0 !important;
-    margin: 0 !important;
-    position: relative;
-  }
-
-  /* Content/card comes FIRST */
-  .promo-card.block.left-img .promo-card-content,
-  .promo-card.block.right-img .promo-card-content {
-    order: 1 !important;
-    width: calc(100% - 64px) !important;
-    min-height: 0 !important;
-    height: auto !important;
-    margin: 0 auto !important;
-    padding: 28px 20px 24px !important;
-    transform: none !important;
-    position: relative;
-    z-index: 2;
-    box-sizing: border-box;
-  }
-
-  /* Image comes BELOW card */
-  .promo-card.block.left-img .promo-card-image,
-  .promo-card.block.right-img .promo-card-image {
-    order: 2 !important;
-    grid-column: auto !important;
-    width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    margin: -40px 0 0 !important;
-    padding: 0 !important;
-    transform: none !important;
-    border-radius: 0 !important;
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
-  }
-
-  .promo-card.block.left-img .promo-card-image picture,
-  .promo-card.block.right-img .promo-card-image picture {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  .promo-card.block.left-img .promo-card-image img,
-  .promo-card.block.right-img .promo-card-image img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
   }
 }
