@@ -10,7 +10,10 @@ export default function decorate(block) {
   grid.className = 'brands-grid';
 
   items.forEach((item) => {
-    if (item.classList.contains('brand')) {
+    // Identify Brand using AEM Universal Editor metadata
+    const isBrand = item.dataset.aueComponent === 'brand';
+
+    if (isBrand) {
       item.classList.add('brand-card');
 
       const image = item.querySelector('img');
@@ -20,12 +23,13 @@ export default function decorate(block) {
         image.classList.add('brand-logo');
       }
 
-      // Make the image clickable
+      // Make the brand image clickable
       if (image && linkField) {
         const href = linkField.textContent.trim();
 
         if (href) {
           const link = document.createElement('a');
+
           link.href = href;
           link.className = 'brand-card-link';
 
@@ -34,24 +38,28 @@ export default function decorate(block) {
           if (picture) {
             picture.parentElement.insertBefore(link, picture);
             link.appendChild(picture);
-          } else {
-            image.parentElement.insertBefore(link, image);
-            link.appendChild(image);
           }
         }
 
+        // Do not display the authored URL/text
         linkField.remove();
       }
 
       grid.appendChild(item);
-    } else if (!titleWrapper.children.length) {
-      // Only keep the first non-brand item as title
-      titleWrapper.appendChild(item);
+    } else {
+      // Treat non-brand content as the heading
+      if (!titleWrapper.children.length) {
+        titleWrapper.appendChild(item);
+      }
     }
   });
 
+  // Rebuild block
   block.innerHTML = '';
 
-  block.appendChild(titleWrapper);
+  if (titleWrapper.children.length) {
+    block.appendChild(titleWrapper);
+  }
+
   block.appendChild(grid);
 }
