@@ -6,7 +6,7 @@
   position: relative;
   width: 100%;
   background: #f1f1f1;
-  padding: 40px 0 50px;
+  padding: 18px 0 50px;
   overflow: hidden;
 }
 
@@ -19,7 +19,6 @@
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-
   align-items: center;
 
   width: min(1260px, calc(100% - 50px));
@@ -47,7 +46,6 @@
 
 .promo-card.block .promo-card-image picture {
   display: block;
-
   width: 100%;
   height: 100%;
 }
@@ -90,28 +88,35 @@
 
 /* ================================================================
    LEFT IMAGE VARIANT
-   Text left + Image right
+   Text LEFT + Image RIGHT
    ================================================================ */
 
 .promo-card.block.left-img .promo-card-content {
+  grid-column: 1;
   margin-right: -70px;
 }
 
 .promo-card.block.left-img .promo-card-image {
-  margin-left: 0;
+  grid-column: 2;
+
+  margin-top: 89px;
 }
 
 /* ================================================================
    RIGHT IMAGE VARIANT
-   Image left + Text right
+   Image LEFT + Text RIGHT
    ================================================================ */
 
-.promo-card.block.right-img .promo-card-content {
-  margin-left: -70px;
+.promo-card.block.right-img .promo-card-image {
+  grid-column: 1;
+
+  margin-top: 89px;
 }
 
-.promo-card.block.right-img .promo-card-image {
-  margin-left: 0;
+.promo-card.block.right-img .promo-card-content {
+  grid-column: 2;
+
+  margin-left: -70px;
 }
 
 /* ================================================================
@@ -150,16 +155,14 @@
    ================================================================ */
 
 .promo-card.block .promo-card-description {
-  font-family: Roboto, Arial, sans-serif;
+  max-width: 500px;
 
+  font-family: Roboto, Arial, sans-serif;
   font-size: 20px;
   font-weight: 400;
-
   line-height: 1.35;
 
   color: #111;
-
-  max-width: 500px;
 }
 
 .promo-card.block .promo-card-description p {
@@ -182,7 +185,6 @@
   gap: 8px;
 
   width: fit-content;
-
   min-width: 330px;
 
   margin-top: auto;
@@ -201,7 +203,6 @@
   font-family: Roboto, Arial, sans-serif;
   font-size: 18px;
   font-weight: 600;
-
   line-height: 1.2;
 
   text-decoration: none;
@@ -253,24 +254,31 @@
   transform: translateX(-22px);
 }
 
+/* Card CTA arrow */
+
 .promo-card.block .promo-card-cta:hover .arrow-current,
-.promo-card.block .promo-main-cta:hover .arrow-current {
+.promo-card.block .promo-card-cta:focus-visible .arrow-current,
+.promo-card.block .promo-main-cta:hover .arrow-current,
+.promo-card.block .promo-main-cta:focus-visible .arrow-current {
   transform: translateX(22px);
 }
 
 .promo-card.block .promo-card-cta:hover .arrow-next,
-.promo-card.block .promo-main-cta:hover .arrow-next {
+.promo-card.block .promo-card-cta:focus-visible .arrow-next,
+.promo-card.block .promo-main-cta:hover .arrow-next,
+.promo-card.block .promo-main-cta:focus-visible .arrow-next {
   transform: translateX(0);
 }
 
 /* ================================================================
    MAIN CTA
+   Optional CTA BELOW THE PROMO CARD
    ================================================================ */
 
 .promo-card.block .promo-main-cta-wrapper {
   display: flex;
-
   justify-content: center;
+  align-items: center;
 
   width: 100%;
 
@@ -300,7 +308,6 @@
   font-family: Roboto, Arial, sans-serif;
   font-size: 18px;
   font-weight: 600;
-
   line-height: 1.2;
 
   text-decoration: none;
@@ -317,10 +324,39 @@
 }
 
 /* ================================================================
+   IMAGE / CONTENT ORDER
+   ================================================================ */
+
+/*
+ * left-img:
+ *   Content | Image
+ *
+ * right-img:
+ *   Image | Content
+ */
+
+.promo-card.block.left-img .promo-card-content {
+  order: 1;
+}
+
+.promo-card.block.left-img .promo-card-image {
+  order: 2;
+}
+
+.promo-card.block.right-img .promo-card-image {
+  order: 1;
+}
+
+.promo-card.block.right-img .promo-card-content {
+  order: 2;
+}
+
+/* ================================================================
    RESPONSIVE
    ================================================================ */
 
 @media (max-width: 900px) {
+
   .promo-card.block {
     padding: 30px 0 40px;
   }
@@ -334,8 +370,10 @@
     min-height: auto;
   }
 
+  /* Image */
+
   .promo-card.block .promo-card-image {
-    order: 1;
+    order: 1 !important;
 
     width: 100%;
     height: 450px;
@@ -345,8 +383,10 @@
     border-radius: 16px;
   }
 
+  /* Content */
+
   .promo-card.block .promo-card-content {
-    order: 2;
+    order: 2 !important;
 
     width: calc(100% - 30px);
 
@@ -359,17 +399,35 @@
     border-radius: 16px;
   }
 
+  /* Title */
+
   .promo-card.block .promo-card-title {
     font-size: 30px;
   }
 
-  .promo-card.block .promo-card-subtitle,
+  /* Subtitle */
+
+  .promo-card.block .promo-card-subtitle {
+    font-size: 18px;
+  }
+
+  /* Description */
+
   .promo-card.block .promo-card-description {
     font-size: 18px;
   }
 
+  /* Card CTA */
+
   .promo-card.block .promo-card-cta {
-    min-width: 100%;
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* Main CTA */
+
+  .promo-card.block .promo-main-cta-wrapper {
+    margin-top: 30px;
   }
 
   .promo-card.block .promo-main-cta {
@@ -383,6 +441,7 @@
    ================================================================ */
 
 @media (max-width: 600px) {
+
   .promo-card.block .promo-card-image {
     height: 330px;
   }
