@@ -46,9 +46,9 @@
     ]
   },
   {
-    "id": "hero",
+    "id": "promo-card",
     "components": [
-      "hero"
+      "promo-card"
     ]
   }
 ]

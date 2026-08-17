@@ -253,7 +253,7 @@
     ]
   },
   {
-    "id": "hero",
+    "id": "promo-card",
     "fields": [
       {
         "component": "reference",
@@ -283,21 +283,17 @@
       {
         "component": "select",
         "name": "variant",
-        "label": "Hero Variant",
+        "label": "Promo Variant",
         "valueType": "string",
-        "value": "large",
+        "value": "left-img",
         "options": [
           {
-            "name": "Large",
-            "value": "large"
+            "name": "Left image",
+            "value": "left-img"
           },
           {
-            "name": "Medium",
-            "value": "medium"
-          },
-          {
-            "name": "Text Only Grey",
-            "value": "text-only-grey"
+            "name": "Right image",
+            "value": "right-img"
           }
         ]
       },
@@ -312,6 +308,19 @@
         "name": "ctaLink",
         "value": "",
         "label": "CTA Link",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "mainCtaLabel",
+        "label": "Main CTA Label"
+      },
+      {
+        "component": "aem-content",
+        "name": "mainCtaLink",
+        "value": "",
+        "label": "Main CTA Link",
         "valueType": "string"
       }
     ]
