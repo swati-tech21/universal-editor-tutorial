@@ -378,6 +378,9 @@ main > .section:has(.promo-card) > div {
   .promo-card.block {
     padding: 30px 0 40px;
   }
+.promo-card.block.right-img .promo-card-cta {
+    margin-top: 2rem;
+}
 
   .promo-card.block .promo-card-inner {
        position: relative;
@@ -504,6 +507,9 @@ main > .section:has(.promo-card) > div {
     margin: 0;
     overflow: visible;
   }
+.promo-card.block.right-img .promo-card-cta {
+    margin-top: 2rem;
+}
 
 
   /* --------------------------------------------------------------
