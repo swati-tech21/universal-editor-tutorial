@@ -442,7 +442,6 @@ main > .section:has(.promo-card) > div {
 
     transform: none;
     
-        margin: 3px 0 -91px !important;
     height: auto;
 
     margin: -40px 0 0 !important;
@@ -647,7 +646,7 @@ width: 19rem !important;
         min-height: 0 !important;
         border-radius: 17px;
         height: 283px !important;
-        /* margin: 0 auto !important; */
+        margin: 0 auto !important;
         padding: 28px 20px 24px !important;
         transform: none !important;
         position: relative;
