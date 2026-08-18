@@ -12,6 +12,7 @@ main > .section:has(.promo-card) > div {
   width: 100%;
   background: #f1f1f1;
   padding: 18px 0 40px;
+  height: 617px;
   overflow: hidden;
 }
 
@@ -80,7 +81,7 @@ margin-top: 161px;
   box-sizing: border-box;
 
   padding: 68px 65px 62px;
-
+  margin-bottom: 248px;
   background: #fff;
   border-radius: 12px;
 
