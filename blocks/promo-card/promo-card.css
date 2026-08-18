@@ -641,8 +641,8 @@ width: 19rem !important;
 
   .promo-card.block.left-img .promo-card-content,
   .promo-card.block.right-img .promo-card-content {
-        order: 1 !important;
-        width: 326px !important;
+            order: 1 !important;
+        width: 20.5rem !important;
         min-height: 0 !important;
         border-radius: 17px;
         height: 283px !important;
@@ -761,10 +761,10 @@ width: 19rem !important;
   .promo-card.block.left-img .promo-card-content,
   .promo-card.block.right-img .promo-card-content {
     order: 1 !important;
-    width: calc(100% - 64px) !important;
+    width: 326px !important;
     min-height: 0 !important;
     height: auto !important;
-    margin: 0 auto !important;
+    /* margin: 0 auto !important; */
     padding: 28px 20px 24px !important;
     transform: none !important;
     position: relative;
