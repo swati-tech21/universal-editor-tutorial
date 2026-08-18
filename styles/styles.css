@@ -206,6 +206,7 @@ button.button.primary {
   background-color: var(--text-color);
   color: var(--background-color);
   width: 325px;
+  height: 38px;
 }
 
 a.button.primary:hover,
