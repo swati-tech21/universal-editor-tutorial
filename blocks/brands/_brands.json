@@ -33,35 +33,6 @@
   ],
   "models": [
     {
-      "id": "brands",
-      "fields": [
-        {
-          "component": "text",
-          "name": "heading",
-          "label": "Heading"
-        },
-        {
-          "component": "select",
-          "name": "headingAlignment",
-          "label": "Heading Alignment",
-          "options": [
-            {
-              "name": "Left",
-              "value": "left"
-            },
-            {
-              "name": "Center",
-              "value": "center"
-            },
-            {
-              "name": "Right",
-              "value": "right"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "brand",
       "fields": [
         {
