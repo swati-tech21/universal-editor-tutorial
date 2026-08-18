@@ -60,6 +60,9 @@ main > .section:has(.promo-card) > div {
   border-radius: 1rem;
 }
 
+.promo-card.block.right-img .promo-card-image img{
+margin-top: 161px;
+}
 
 /* ================================================================
    CONTENT CARD
