@@ -74,5 +74,12 @@
       ]
     }
   ],
-  "filters": []
+  "filters": [
+    {
+      "id": "section-filter",
+      "components": [
+        "heading"
+      ]
+    }
+  ]
 }
