@@ -120,6 +120,7 @@ main > .section:has(.promo-card) > div {
   align-items: center;
 }
 
+
 .promo-card.block.right-img .promo-card-image {
   grid-column: 1;
   order: 1;
@@ -223,7 +224,7 @@ main > .section:has(.promo-card) > div {
   min-width: 319px;
 
   margin-top: 16.5rem;
-
+ 
   padding: 8px 22px;
 
   box-sizing: border-box;
@@ -248,6 +249,9 @@ main > .section:has(.promo-card) > div {
     color 0.3s ease,
     border-color 0.3s ease;
 }
+.promo-card.block.right-img .promo-card-cta{
+    margin-top: 12.5rem;
+   }
 
 .promo-card.block .promo-card-cta:hover,
 .promo-card.block .promo-card-cta:focus-visible {
