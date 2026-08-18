@@ -38,7 +38,7 @@ main > .section:has(.promo-card) > div {
 .promo-card.block .promo-card-image {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 100%;
   overflow: hidden;
   border-radius: 13px;
   z-index: 1;
