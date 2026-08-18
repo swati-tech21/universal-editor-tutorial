@@ -641,8 +641,8 @@ width: 19rem !important;
 
   .promo-card.block.left-img .promo-card-content,
   .promo-card.block.right-img .promo-card-content {
-            order: 1 !important;
-        width: 20.5rem !important;
+        order: 1 !important;
+        width: 326px !important;
         min-height: 0 !important;
         border-radius: 17px;
         height: 283px !important;
@@ -780,7 +780,7 @@ width: 19rem !important;
     width: 100% !important;
     height: auto !important;
     min-height: 0 !important;
-    margin: -120px 0 0 !important;
+    margin: -74px 0 0 !important;
     padding: 0 !important;
     transform: none !important;
     border-radius: 0 !important;
