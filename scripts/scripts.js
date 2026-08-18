@@ -110,6 +110,20 @@ export function decorateButtons(main) {
 }
 
 /**
+ * Decorates title alignment.
+ * @param {Element} main The main element
+ */
+function decorateTitles(main) {
+  main.querySelectorAll('[data-aue-model="title"]').forEach((title) => {
+    const alignment = title.dataset.titleAlignment;
+
+    if (alignment) {
+      title.style.textAlign = alignment;
+    }
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -120,6 +134,7 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
+   decorateTitles(main);
 }
 
 /**
