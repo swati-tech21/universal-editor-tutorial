@@ -441,7 +441,8 @@ main > .section:has(.promo-card) > div {
     order: 2 !important;
 
     transform: none;
-
+    
+        margin: 3px 0 -91px !important;
     height: auto;
 
     margin: -40px 0 0 !important;
