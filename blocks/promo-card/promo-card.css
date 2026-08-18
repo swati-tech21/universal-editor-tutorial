@@ -22,11 +22,15 @@ main > .section:has(.promo-card) > div {
 
 .promo-card.block .promo-card-inner {
   position: relative;
+
   display: grid;
   grid-template-columns: 44% 58%;
+
   align-items: center;
+
   width: min(839px, calc(100% - 50px));
   min-height: 450px;
+
   margin: 0 auto;
 }
 
@@ -37,23 +41,30 @@ main > .section:has(.promo-card) > div {
 
 .promo-card.block .promo-card-image {
   position: relative;
+
   width: 100%;
   height: 427px;
+
   overflow: hidden;
+
   border-radius: 13px;
+
   z-index: 1;
 }
 
 .promo-card.block .promo-card-image picture {
   display: block;
+
   width: 100%;
   height: 100%;
 }
 
 .promo-card.block .promo-card-image img {
   display: block;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
   object-position: center;
 }
@@ -65,7 +76,9 @@ main > .section:has(.promo-card) > div {
 
 .promo-card.block .promo-card-content {
   position: relative;
+
   z-index: 2;
+
   display: flex;
   flex-direction: column;
 
@@ -77,6 +90,7 @@ main > .section:has(.promo-card) > div {
   padding: 50px 48px;
 
   background: #fff;
+
   border-radius: 12px;
 
   box-shadow: 0 12px 25px rgb(0 0 0 / 8%);
@@ -85,35 +99,16 @@ main > .section:has(.promo-card) > div {
 
 /* ================================================================
    LEFT IMAGE VARIANT
-   Text LEFT + Image RIGHT
+   Image LEFT + Content RIGHT
    ================================================================ */
 
-.promo-card.block.left-img .promo-card-content {
-  grid-column: 1;
-  order: 1;
-  margin-right: -35px;
-}
-
-.promo-card.block.left-img .promo-card-image {
-  grid-column: 2;
-  order: 2;
-  margin-top: 7.9rem;
-  transform: translateX(-10px);
-}
-
-
-/* ================================================================
-   RIGHT IMAGE VARIANT
-   Image LEFT + Text RIGHT
-   ================================================================ */
-
-.promo-card.block.right-img .promo-card-inner {
+.promo-card.block.left-img .promo-card-inner {
   display: grid;
   grid-template-columns: 55% 45%;
   align-items: center;
 }
 
-.promo-card.block.right-img .promo-card-image {
+.promo-card.block.left-img .promo-card-image {
   grid-column: 1;
   order: 1;
 
@@ -125,7 +120,7 @@ main > .section:has(.promo-card) > div {
   z-index: 1;
 }
 
-.promo-card.block.right-img .promo-card-content {
+.promo-card.block.left-img .promo-card-content {
   grid-column: 2;
   order: 2;
 
@@ -140,6 +135,38 @@ main > .section:has(.promo-card) > div {
 
 
 /* ================================================================
+   RIGHT IMAGE VARIANT
+   Content LEFT + Image RIGHT
+   ================================================================ */
+
+.promo-card.block.right-img .promo-card-inner {
+  display: grid;
+  grid-template-columns: 44% 58%;
+  align-items: center;
+}
+
+.promo-card.block.right-img .promo-card-content {
+  grid-column: 1;
+  order: 1;
+
+  margin-right: -35px;
+
+  z-index: 2;
+}
+
+.promo-card.block.right-img .promo-card-image {
+  grid-column: 2;
+  order: 2;
+
+  margin-top: 7.9rem;
+
+  transform: translateX(-10px);
+
+  z-index: 1;
+}
+
+
+/* ================================================================
    TITLE
    ================================================================ */
 
@@ -147,6 +174,7 @@ main > .section:has(.promo-card) > div {
   margin: 0 0 10px;
 
   font-family: Roboto, Arial, sans-serif;
+
   font-size: 24px;
   font-weight: 700;
 
@@ -165,6 +193,7 @@ main > .section:has(.promo-card) > div {
   margin: 0 0 12px;
 
   font-family: Roboto, Arial, sans-serif;
+
   font-size: 17px;
   font-weight: 400;
 
@@ -182,6 +211,7 @@ main > .section:has(.promo-card) > div {
   max-width: 400px;
 
   font-family: Roboto, Arial, sans-serif;
+
   font-size: 16px;
   font-weight: 400;
 
@@ -194,6 +224,7 @@ main > .section:has(.promo-card) > div {
   margin: 0 0 10px;
 
   font-size: 13px;
+
   letter-spacing: 0.7px;
 }
 
@@ -208,8 +239,10 @@ main > .section:has(.promo-card) > div {
 
 .promo-card.block .promo-card-cta {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
+
   gap: 8px;
 
   width: fit-content;
@@ -228,6 +261,7 @@ main > .section:has(.promo-card) > div {
   color: #111;
 
   font-family: Roboto, Arial, sans-serif;
+
   font-size: 13px;
   font-weight: 600;
 
@@ -306,11 +340,11 @@ main > .section:has(.promo-card) > div {
 
 /* ================================================================
    MAIN CTA
-   Optional CTA BELOW THE PROMO CARD
    ================================================================ */
 
 .promo-card.block .promo-main-cta-wrapper {
   display: flex;
+
   justify-content: center;
   align-items: center;
 
@@ -321,8 +355,10 @@ main > .section:has(.promo-card) > div {
 
 .promo-card.block .promo-main-cta {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
+
   gap: 8px;
 
   min-width: 236px;
@@ -338,6 +374,7 @@ main > .section:has(.promo-card) > div {
   color: #fff;
 
   font-family: Roboto, Arial, sans-serif;
+
   font-size: 13px;
   font-weight: 600;
 
@@ -372,6 +409,7 @@ main > .section:has(.promo-card) > div {
     position: relative;
 
     display: grid;
+
     grid-template-columns: 45% 55%;
 
     align-items: center;
@@ -389,14 +427,14 @@ main > .section:has(.promo-card) > div {
      -------------------------------------------------------------- */
 
   .promo-card.block .promo-card-image {
-    order: 1 !important;
-
     width: 100%;
     height: 360px;
 
     margin: 0 !important;
 
     border-radius: 16px;
+
+    z-index: 1;
   }
 
 
@@ -405,46 +443,67 @@ main > .section:has(.promo-card) > div {
      -------------------------------------------------------------- */
 
   .promo-card.block .promo-card-content {
-    order: 2 !important;
-
     width: calc(100% + 40px);
 
     min-height: 360px;
 
-    margin: -40px 0 0 -40px !important;
+    margin: -40px 0 0 -40px;
 
     padding: 35px 28px;
 
     border-radius: 16px;
+
+    z-index: 2;
   }
 
 
   /* --------------------------------------------------------------
-     BOTH VARIANTS
-     Tablet
-     Image top + content overlapping image
+     LEFT IMAGE
      -------------------------------------------------------------- */
 
-  .promo-card.block.left-img .promo-card-image,
-  .promo-card.block.right-img .promo-card-image {
+  .promo-card.block.left-img .promo-card-image {
     grid-column: 1;
-
-    order: 1 !important;
+    order: 1;
 
     margin: 0 !important;
+
+    transform: none !important;
   }
 
-  .promo-card.block.left-img .promo-card-content,
-  .promo-card.block.right-img .promo-card-content {
+  .promo-card.block.left-img .promo-card-content {
     grid-column: 1 / -1;
-
-    order: 2 !important;
-
-    transform: none;
+    order: 2;
 
     height: auto;
 
     margin: -40px 0 0 !important;
+
+    transform: none !important;
+  }
+
+
+  /* --------------------------------------------------------------
+     RIGHT IMAGE
+     -------------------------------------------------------------- */
+
+  .promo-card.block.right-img .promo-card-image {
+    grid-column: 1;
+    order: 1;
+
+    margin: 0 !important;
+
+    transform: none !important;
+  }
+
+  .promo-card.block.right-img .promo-card-content {
+    grid-column: 1 / -1;
+    order: 2;
+
+    height: auto;
+
+    margin: -40px 0 0 !important;
+
+    transform: none !important;
   }
 
 
@@ -481,6 +540,7 @@ main > .section:has(.promo-card) > div {
 
   .promo-card.block .promo-card-cta {
     width: 100%;
+
     min-width: 0;
   }
 
@@ -495,6 +555,7 @@ main > .section:has(.promo-card) > div {
 
   .promo-card.block .promo-main-cta {
     min-width: 280px;
+
     max-width: calc(100% - 32px);
   }
 }
@@ -506,26 +567,35 @@ main > .section:has(.promo-card) > div {
 
 @media (max-width: 768px) {
 
+  /* --------------------------------------------------------------
+     PROMO CARD
+     -------------------------------------------------------------- */
+
   .promo-card.block {
     width: 100%;
+
     padding: 0;
     margin: 0;
+
     overflow: visible;
   }
 
 
   /* --------------------------------------------------------------
-     CARD INNER
+     INNER
      -------------------------------------------------------------- */
 
   .promo-card.block .promo-card-inner {
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
 
-    width: 100%;
-    min-height: 0;
+    flex-direction: column !important;
 
-    margin: 0;
+    width: 100% !important;
+
+    min-height: 0 !important;
+
+    margin: 0 !important;
+
     position: relative;
   }
 
@@ -533,11 +603,13 @@ main > .section:has(.promo-card) > div {
   /* ==============================================================
      LEFT IMAGE VARIANT
      
-     Mobile:
-     CONTENT FIRST
-     IMAGE SECOND
+     MOBILE DESIGN:
      
-     The image moves upward behind the content card.
+     CARD
+       ↓
+     IMAGE
+     
+     Card overlaps the top of image.
      ============================================================== */
 
   .promo-card.block.left-img .promo-card-content {
@@ -546,108 +618,87 @@ main > .section:has(.promo-card) > div {
     width: 326px !important;
 
     min-height: 0 !important;
-    height: 283px !important;
+
+    height: auto !important;
 
     margin: 33px auto 0 !important;
 
     padding: 28px 20px 24px !important;
 
-    position: relative;
-    z-index: 2;
-
     box-sizing: border-box;
 
-    background: #fff;
-    border-radius: 17px;
+    position: relative;
+
+    z-index: 2;
 
     transform: none !important;
+
+    border-radius: 17px;
+
+    background: #fff;
+
+    box-shadow: 0 8px 25px rgb(0 0 0 / 10%);
   }
 
   .promo-card.block.left-img .promo-card-image {
     order: 2 !important;
 
     width: 100% !important;
+
     height: auto !important;
 
-    min-height: 0;
+    min-height: 0 !important;
 
-    margin: -74px 0 0 !important;
+    margin: -40px 0 0 !important;
 
-    padding: 0;
-
-    position: relative;
-    z-index: 1;
+    padding: 0 !important;
 
     transform: none !important;
 
-    border-radius: 0;
+    border-radius: 0 !important;
 
     overflow: hidden;
-  }
 
-  .promo-card.block.left-img .promo-card-image picture {
-    display: block;
+    position: relative;
 
-    width: 100%;
-    height: auto;
-  }
-
-  .promo-card.block.left-img .promo-card-image img {
-    display: block;
-
-    width: 100%;
-    height: auto;
-
-    object-fit: cover;
+    z-index: 1;
   }
 
 
   /* ==============================================================
      RIGHT IMAGE VARIANT
      
-     Mobile:
-     IMAGE FIRST
-     CONTENT SECOND
+     MOBILE DESIGN:
      
-     The content card moves upward over the image.
+     IMAGE
+       ↓
+     CARD
+     
+     Card overlaps the bottom of image.
      ============================================================== */
 
   .promo-card.block.right-img .promo-card-image {
     order: 1 !important;
 
     width: 100% !important;
+
     height: auto !important;
 
-    min-height: 0;
+    min-height: 0 !important;
 
     margin: 0 !important;
 
-    padding: 0;
-
-    position: relative;
-    z-index: 1;
+    padding: 0 !important;
 
     transform: none !important;
 
-    border-radius: 0;
+    border-radius: 0 !important;
 
     overflow: hidden;
-  }
 
-  .promo-card.block.right-img .promo-card-image picture {
-    display: block;
+    position: relative;
 
-    width: 100%;
-    height: auto;
-  }
-
-  .promo-card.block.right-img .promo-card-image img {
-    display: block;
-
-    width: 100%;
-    height: auto;
-
-    object-fit: cover;
+    z-index: 1;
   }
 
   .promo-card.block.right-img .promo-card-content {
@@ -656,21 +707,47 @@ main > .section:has(.promo-card) > div {
     width: 326px !important;
 
     min-height: 0 !important;
+
     height: auto !important;
 
-    margin: -74px auto 0 !important;
+    margin: -40px auto 0 !important;
 
     padding: 28px 20px 24px !important;
 
-    position: relative;
-    z-index: 2;
-
     box-sizing: border-box;
 
-    background: #fff;
-    border-radius: 17px;
+    position: relative;
+
+    z-index: 2;
 
     transform: none !important;
+
+    border-radius: 17px;
+
+    background: #fff;
+
+    box-shadow: 0 8px 25px rgb(0 0 0 / 10%);
+  }
+
+
+  /* --------------------------------------------------------------
+     IMAGE / PICTURE
+     -------------------------------------------------------------- */
+
+  .promo-card.block .promo-card-image picture {
+    display: block;
+
+    width: 100%;
+    height: auto;
+  }
+
+  .promo-card.block .promo-card-image img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: cover;
   }
 
 
@@ -760,5 +837,30 @@ main > .section:has(.promo-card) > div {
     min-width: 0;
 
     box-sizing: border-box;
+  }
+}
+
+
+/* ================================================================
+   SMALL MOBILE
+   ================================================================ */
+
+@media (max-width: 375px) {
+
+  .promo-card.block.left-img .promo-card-content,
+  .promo-card.block.right-img .promo-card-content {
+    width: calc(100% - 32px) !important;
+  }
+
+  .promo-card.block .promo-card-title {
+    font-size: 30px;
+  }
+
+  .promo-card.block .promo-card-description p {
+    font-size: 16px;
+  }
+
+  .promo-card.block .promo-card-cta {
+    font-size: 17px;
   }
 }
