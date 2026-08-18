@@ -110,7 +110,11 @@ h6 {
   font-weight: 600;
   line-height: 1.25;
   scroll-margin: 40px;
-  text-align: center;
+  
+}
+
+h2{
+text-align: center;
 }
 
 h1 { font-size: var(--heading-font-size-xxl); }
