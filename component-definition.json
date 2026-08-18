@@ -203,6 +203,20 @@
           }
         },
         {
+          "title": "Heading",
+          "id": "heading",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/title/v1/title",
+                "template": {
+                  "model": "heading"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Hero",
           "id": "hero",
           "plugins": {
