@@ -641,15 +641,17 @@ width: 19rem !important;
 
   .promo-card.block.left-img .promo-card-content,
   .promo-card.block.right-img .promo-card-content {
-    order: 1 !important;
-
-    grid-column: auto;
-
-    margin: 0 auto !important;
-
-    transform: none !important;
-
-    height: auto !important;
+            order: 1 !important;
+        width: 20.5rem !important;
+        min-height: 0 !important;
+        border-radius: 17px;
+        height: 283px !important;
+        /* margin: 0 auto !important; */
+        padding: 28px 20px 24px !important;
+        transform: none !important;
+        position: relative;
+        margin-top: 33px !important;
+        box-sizing: border-box;
   }
 
 
@@ -660,7 +662,7 @@ width: 19rem !important;
   .promo-card.block .promo-card-title {
     margin: 0 0 10px;
 
-    font-size: 24px;
+    font-size: 32px;
 
     line-height: 1.05;
 
@@ -696,7 +698,7 @@ width: 19rem !important;
   .promo-card.block .promo-card-description p {
     margin-bottom: 10px;
 
-    font-size: 13px;
+    font-size: 18px;
   }
 
 
@@ -708,11 +710,9 @@ width: 19rem !important;
     width: 100%;
 
     min-width: 0;
-
-    margin-top: 24px;
-
+   margin-top: 32px;
     padding: 8px 17px;
-
+    font-size: 19px;
     box-sizing: border-box;
   }
 
