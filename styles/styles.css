@@ -113,10 +113,6 @@ h6 {
   
 }
 
-h2{
-text-align: center;
-}
-
 h1 { font-size: var(--heading-font-size-xxl); }
 h2 { font-size: var(--heading-font-size-xl); }
 h3 { font-size: var(--heading-font-size-l); }
