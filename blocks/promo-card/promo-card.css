@@ -62,7 +62,7 @@ main > .section:has(.promo-card) > div {
 }
 
 .promo-card.block.right-img .promo-card-image img{
-margin-top: 161px;
+margin-top: 15px;
 }
 
 /* ================================================================
@@ -144,7 +144,7 @@ margin-top: 161px;
   height: 543px;
 
   margin-left: -55px;
-
+ margin-bottom: 298px;
   transform: translateX(-10px);
 
   z-index: 2;
