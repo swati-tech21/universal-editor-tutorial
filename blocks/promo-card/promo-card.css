@@ -115,7 +115,7 @@ main > .section:has(.promo-card) > div {
 
 .promo-card.block.right-img .promo-card-inner {
   display: grid;
-  grid-template-columns: 57% 49%;
+  grid-template-columns: 57% 45%;
   align-items: center;
 }
 
