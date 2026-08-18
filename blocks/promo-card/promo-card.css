@@ -75,7 +75,7 @@ main > .section:has(.promo-card) > div {
 
   box-sizing: border-box;
 
-  padding: 68px 65px;
+  padding: 68px 65px 62px;
 
   background: #fff;
   border-radius: 12px;
@@ -94,7 +94,7 @@ main > .section:has(.promo-card) > div {
   order: 1;
   margin-right: -35px;
   width: calc(100% + 74px);
-  min-height: 560px;
+  min-height: 549px;
 }
 
 .promo-card.block.left-img .promo-card-image {
@@ -199,8 +199,8 @@ main > .section:has(.promo-card) > div {
 .promo-card.block .promo-card-description p {
   margin: 0 0 10px;
 
-      font-size: 17px;
-    letter-spacing: 0.8px;
+      font-size: 18px;
+    letter-spacing: 0.4px;
 }
 
 .promo-card.block .promo-card-description p:last-child {
@@ -219,22 +219,22 @@ main > .section:has(.promo-card) > div {
   gap: 8px;
 
   width: fit-content;
-  min-width: 260px;
+  min-width: 319px;
 
-  margin-top: 12.5rem;
+  margin-top: 16.5rem;
 
-  padding: 6px 17px;
+  padding: 8px 22px;
 
   box-sizing: border-box;
 
-  border: 1.5px solid #111;
+  border: 2px solid #111;
   border-radius: 30px;
 
   background: #fff;
   color: #111;
 
   font-family: Roboto, Arial, sans-serif;
-  font-size: 13px;
+  font-size: 18px;
   font-weight: 600;
 
   letter-spacing: 0.7px;
