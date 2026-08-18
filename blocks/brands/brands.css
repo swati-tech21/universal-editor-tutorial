@@ -132,7 +132,9 @@
     max-width: 80%;
     max-height: 90px;
   }
- /* .brands-container .brands {
-    padding: 0;
-  }  */
+  main > .section > div {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 24px;
+ }
 }
