@@ -54,6 +54,7 @@ main > .section:has(.promo-card) > div {
   display: block;
   width: 100%;
   height: auto;
+  margin-top:74px ;
   object-fit: cover;
   object-position: center;
   border-radius: 1rem;
@@ -115,9 +116,10 @@ main > .section:has(.promo-card) > div {
 
 .promo-card.block.right-img .promo-card-inner {
   display: grid;
-  grid-template-columns: 57% 45%;
+  grid-template-columns: 57% 46%;
   align-items: center;
 }
+
 
 .promo-card.block.right-img .promo-card-image {
   grid-column: 1;
@@ -135,9 +137,9 @@ main > .section:has(.promo-card) > div {
   grid-column: 2;
   order: 2;
 
-  height: 427px;
+  height: 543px;
 
-  margin-left: -35px;
+  margin-left: -55px;
 
   transform: translateX(-10px);
 
@@ -222,7 +224,7 @@ main > .section:has(.promo-card) > div {
   min-width: 319px;
 
   margin-top: 16.5rem;
-
+ 
   padding: 8px 22px;
 
   box-sizing: border-box;
@@ -247,6 +249,9 @@ main > .section:has(.promo-card) > div {
     color 0.3s ease,
     border-color 0.3s ease;
 }
+.promo-card.block.right-img .promo-card-cta{
+    margin-top: 12.5rem;
+   }
 
 .promo-card.block .promo-card-cta:hover,
 .promo-card.block .promo-card-cta:focus-visible {
