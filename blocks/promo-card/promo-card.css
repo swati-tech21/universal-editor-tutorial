@@ -712,5 +712,8 @@ main > .section:has(.promo-card) > div {
     margin: 2px 0 0 !important;
     /* padding-bottom: 22px; */
   }
+  .promo-card.block.right-img .promo-card-content {
+    margin-top: -92px !important;
+  }
   
 }
