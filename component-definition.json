@@ -208,7 +208,7 @@
           "plugins": {
             "xwalk": {
               "page": {
-                "resourceType": "core/franklin/components/title/v1/title",
+                "resourceType": "core/franklin/components/title/v1/block",
                 "template": {
                   "model": "heading"
                 }
