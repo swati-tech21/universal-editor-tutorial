@@ -54,7 +54,7 @@ main > .section:has(.promo-card) > div {
   display: block;
   width: 100%;
   height: auto;
-  margin-top:156px ;
+  margin-top:74px ;
   object-fit: cover;
   object-position: center;
   border-radius: 1rem;
@@ -249,9 +249,7 @@ main > .section:has(.promo-card) > div {
     color 0.3s ease,
     border-color 0.3s ease;
 }
-.promo-card.block.right-img .promo-card-cta{
-    margin-top: 12.5rem;
-   }
+
 
 .promo-card.block .promo-card-cta:hover,
 .promo-card.block .promo-card-cta:focus-visible {
