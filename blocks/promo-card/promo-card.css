@@ -772,7 +772,7 @@ width: 19rem !important;
     box-sizing: border-box;
   }
 
-  /* Image comes BELOW card */
+  /* Image sits UNDER the text card and overlaps behind it */
   .promo-card.block.left-img .promo-card-image,
   .promo-card.block.right-img .promo-card-image {
     order: 2 !important;
@@ -780,7 +780,7 @@ width: 19rem !important;
     width: 100% !important;
     height: auto !important;
     min-height: 0 !important;
-    margin: -40px 0 0 !important;
+    margin: -120px 0 0 !important;
     padding: 0 !important;
     transform: none !important;
     border-radius: 0 !important;
