@@ -56,6 +56,7 @@ main > .section:has(.promo-card) > div {
   height: auto;
   object-fit: cover;
   object-position: center;
+  border-radius: 1rem;
 }
 
 
@@ -92,8 +93,8 @@ main > .section:has(.promo-card) > div {
   grid-column: 1;
   order: 1;
   margin-right: -35px;
-  width: calc(100% + 20px);
-  min-height: 400px;
+  width: calc(100% + 55px);
+  min-height: 560px;
 }
 
 .promo-card.block.left-img .promo-card-image {
@@ -374,17 +375,12 @@ main > .section:has(.promo-card) > div {
   }
 
   .promo-card.block .promo-card-inner {
-    position: relative;
-
+       position: relative;
     display: grid;
-    grid-template-columns: 45% 55%;
-
+    grid-template-columns: 42% 59%;
     align-items: center;
-
-    width: min(839px, calc(100% - 50px));
-
+    width: min(1120px, calc(100% - 50px));
     min-height: 450px;
-
     margin: 0 auto;
   }
 
