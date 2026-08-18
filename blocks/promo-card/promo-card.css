@@ -54,7 +54,7 @@ main > .section:has(.promo-card) > div {
   display: block;
   width: 100%;
   height: auto;
-  margin-top:74px ;
+  margin-top:156px ;
   object-fit: cover;
   object-position: center;
   border-radius: 1rem;
