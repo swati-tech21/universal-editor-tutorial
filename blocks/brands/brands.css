@@ -132,7 +132,7 @@
     max-width: 80%;
     max-height: 90px;
   }
-  .brand-wrapper{
+  .brands-container .brands-wrapper {
     padding: 0;
- }
+  }
 }
