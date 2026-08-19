@@ -48,6 +48,7 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  overflow: hidden;
 }
 
 .brand-card picture {

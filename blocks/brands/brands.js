@@ -10,7 +10,6 @@ export default function decorate(block) {
   grid.className = 'brands-grid';
 
   items.forEach((item) => {
-    // Identify Brand using AEM Universal Editor metadata
     const isBrand = item.dataset.aueComponent === 'brand';
 
     if (isBrand) {
@@ -23,9 +22,10 @@ export default function decorate(block) {
         image.classList.add('brand-logo');
       }
 
-      // Make the brand image clickable
       if (image && linkField) {
-        const href = linkField.textContent.trim();
+        // Get the authored URL
+        const href = linkField.querySelector('a')?.href
+          || linkField.textContent.trim();
 
         if (href) {
           const link = document.createElement('a');
@@ -41,20 +41,19 @@ export default function decorate(block) {
           }
         }
 
-        // Do not display the authored URL/text
+        // Remove the complete imageLink authoring field
         linkField.remove();
       }
 
       grid.appendChild(item);
     } else {
-      // Treat non-brand content as the heading
+      // Treat non-brand content as heading
       if (!titleWrapper.children.length) {
         titleWrapper.appendChild(item);
       }
     }
   });
 
-  // Rebuild block
   block.innerHTML = '';
 
   if (titleWrapper.children.length) {
