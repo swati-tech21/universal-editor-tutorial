@@ -62,8 +62,8 @@
 /* All brand logos use the same image area */
 .brand-logo {
   display: block;
-  width: 200px;
-  height: 150px;
+  width: 186px;
+  height: 186px;
   object-fit: contain;
   object-position: center;
 }
@@ -90,8 +90,8 @@
   }
 
   .brand-logo {
-    width: 170px;
-    height: 130px;
+    width: 150px;
+    height: 150px;
   }
 }
 
@@ -138,8 +138,8 @@
 
   /* Same image area for every logo on mobile */
   .brand-logo {
-    width: 120px;
-    height: 90px;
+    width: 111px;
+    height: 111px;
     object-fit: contain;
     object-position: center;
   }
