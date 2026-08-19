@@ -509,6 +509,7 @@ font-family: Noto-regional, Noto-latin, TCCC-UnityText, sans-serif;
     width: 100%;
     padding: 0;
     margin: 0;
+    height: 580px;
     overflow: visible;
   }
  .promo-card.block.right-img .promo-card-cta {
@@ -618,6 +619,10 @@ font-family: Noto-regional, Noto-latin, TCCC-UnityText, sans-serif;
     z-index: 1;
   }
 
+  .promo-card.block .promo-card-image img {
+    border-radius: 0;
+  }
+  
   .promo-card.block .promo-card-image picture,
   .promo-card.block.left-img .promo-card-image picture,
   .promo-card.block.right-img .promo-card-image picture {
