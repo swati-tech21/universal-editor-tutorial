@@ -31,6 +31,13 @@
     ]
   },
   {
+    "id": "coca-cola-footer",
+    "components": [
+      "coca-cola-footer-column",
+      "coca-cola-footer-social-link"
+    ]
+  },
+  {
     "id": "columns",
     "components": [
       "column"
