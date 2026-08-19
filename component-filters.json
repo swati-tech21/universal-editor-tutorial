@@ -15,10 +15,7 @@
       "hero",
       "cards",
       "columns",
-      "fragment",
-      "brands",
-      "promo-card",
-      "heading"
+      "fragment"
     ]
   },
   {
@@ -52,6 +49,12 @@
     "id": "feature-cards",
     "components": [
       "feature-card"
+    ]
+  },
+  {
+    "id": "section-filter",
+    "components": [
+      "heading"
     ]
   },
   {

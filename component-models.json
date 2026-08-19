@@ -257,6 +257,7 @@
         "component": "select",
         "name": "headingType",
         "label": "Heading Type",
+        "value": "h2",
         "options": [
           {
             "name": "h1",
