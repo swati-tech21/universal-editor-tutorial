@@ -55,12 +55,6 @@
     ]
   },
   {
-    "id": "section-filter",
-    "components": [
-      "heading"
-    ]
-  },
-  {
     "id": "promo-card",
     "components": [
       "promo-card"
