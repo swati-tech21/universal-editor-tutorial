@@ -1,23 +1,29 @@
 export default function decorate(block) {
-  const rows = [...block.children];
+  const headingRow = block.querySelector('[data-aue-prop="heading"]');
+  const headingTypeRow = block.querySelector('[data-aue-prop="headingType"]');
+  const alignmentRow = block.querySelector('[data-aue-prop="alignment"]');
 
-  const headingText = rows[0]?.textContent.trim() || '';
+  const headingText = headingRow?.textContent.trim() || '';
+  const headingType = headingTypeRow?.textContent.trim().toLowerCase() || 'h2';
+  const alignment = alignmentRow?.textContent.trim().toLowerCase() || 'left';
 
-  const possibleHeadingType = rows[1]?.textContent.trim().toLowerCase();
-  const headingType = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(possibleHeadingType)
-    ? possibleHeadingType
+  // Safety: only allow valid heading elements
+  const validHeadingTypes = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+
+  const safeHeadingType = validHeadingTypes.includes(headingType)
+    ? headingType
     : 'h2';
 
-  const possibleAlignment = rows[2]?.textContent.trim().toLowerCase();
-  const alignment = ['left', 'center'].includes(possibleAlignment)
-    ? possibleAlignment
+  const safeAlignment = ['left', 'center'].includes(alignment)
+    ? alignment
     : 'left';
 
   block.innerHTML = '';
 
-  const heading = document.createElement(headingType);
+  const heading = document.createElement(safeHeadingType);
+
   heading.textContent = headingText;
-  heading.classList.add(`heading-${alignment}`);
+  heading.classList.add(`heading-${safeAlignment}`);
 
   block.append(heading);
 }
