@@ -9,6 +9,14 @@
 .heading h5,
 .heading h6 {
   margin: 0;
+  font-family: Noto-regional, Noto-latin, TCCC-UnityText, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: -1.5px;
+  color: rgb(0, 0, 0);
+  display: block;
+  direction: ltr;
 }
 
 .heading-left {
