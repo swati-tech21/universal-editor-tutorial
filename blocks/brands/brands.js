@@ -12,46 +12,52 @@ export default function decorate(block) {
   items.forEach((item) => {
     const isBrand = item.dataset.aueComponent === 'brand';
 
-    if (isBrand) {
-      item.classList.add('brand-card');
-
-      const image = item.querySelector('img');
-      const linkField = item.querySelector('[data-aue-prop="imageLink"]');
-
-      if (image) {
-        image.classList.add('brand-logo');
-      }
-
-      if (image && linkField) {
-        // Get the authored URL
-        const href = linkField.querySelector('a')?.href
-          || linkField.textContent.trim();
-
-        if (href) {
-          const link = document.createElement('a');
-
-          link.href = href;
-          link.className = 'brand-card-link';
-
-          const picture = image.closest('picture');
-
-          if (picture) {
-            picture.parentElement.insertBefore(link, picture);
-            link.appendChild(picture);
-          }
-        }
-
-        // Remove the complete imageLink authoring field
-        linkField.remove();
-      }
-
-      grid.appendChild(item);
-    } else {
-      // Treat non-brand content as heading
+    if (!isBrand) {
       if (!titleWrapper.children.length) {
         titleWrapper.appendChild(item);
       }
+      return;
     }
+
+    item.classList.add('brand-card');
+
+    const image = item.querySelector('img');
+    const picture = image?.closest('picture');
+
+    if (!image || !picture) {
+      grid.appendChild(item);
+      return;
+    }
+
+    image.classList.add('brand-logo');
+
+    // Find any authored URL
+    const authoredLink = item.querySelector('a[href]');
+
+    const href = authoredLink?.getAttribute('href')?.trim();
+
+    // Create a clean wrapper
+    const contentWrapper = document.createElement('div');
+
+    if (href) {
+      const link = document.createElement('a');
+
+      link.href = href;
+      link.className = 'brand-card-link';
+
+      link.appendChild(picture);
+      contentWrapper.appendChild(link);
+    } else {
+      contentWrapper.appendChild(picture);
+    }
+
+    // Remove everything currently inside the card
+    item.innerHTML = '';
+
+    // Add only our clean structure
+    item.appendChild(contentWrapper);
+
+    grid.appendChild(item);
   });
 
   block.innerHTML = '';
