@@ -259,8 +259,8 @@ font-family: Noto-regional, Noto-latin, TCCC-UnityText, sans-serif;
 
 .promo-card.block .promo-card-cta:hover,
 .promo-card.block .promo-card-cta:focus-visible {
-  background: #111;
-  color: #fff;
+  background: #ececec;
+  color: #111;
 }
 
 
@@ -622,7 +622,7 @@ font-family: Noto-regional, Noto-latin, TCCC-UnityText, sans-serif;
   .promo-card.block .promo-card-image img {
     border-radius: 0;
   }
-  
+
   .promo-card.block .promo-card-image picture,
   .promo-card.block.left-img .promo-card-image picture,
   .promo-card.block.right-img .promo-card-image picture {
