@@ -61,7 +61,7 @@
           "component": "select",
           "name": "alignment",
           "label": "Alignment",
-          "value": "left",
+          "value": "center",
           "options": [
             {
               "name": "Left",
