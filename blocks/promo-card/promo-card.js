@@ -1,3 +1,5 @@
+import safeUrl from '../../scripts/utils/safe-url.js';
+
 /**
  * Get the text content of a row safely.
  */
@@ -13,35 +15,14 @@ function getText(row) {
 function getLink(row) {
   const raw = (row?.querySelector('a')?.getAttribute('href') || getText(row)).trim();
 
-  // control characters and backslashes are how URL parsers get tricked
-  // eslint-disable-next-line no-control-regex
-  if (!raw || /[\u0000-\u001F\u007F\\]/.test(raw)) {
-    return '';
-  }
-
   if (raw.startsWith('#')) {
     return raw;
   }
 
   // a bare domain like "example.com" is treated as https
   const hasScheme = /^[a-z][a-z0-9+.-]*:/i.test(raw);
-  let url;
-  try {
-    url = new URL(hasScheme || raw.startsWith('/') ? raw : `https://${raw}`, window.location.href);
-  } catch {
-    return '';
-  }
-
-  if (['mailto:', 'tel:'].includes(url.protocol)) {
-    return url.href;
-  }
-
-  const sameSite = url.origin === window.location.origin;
-  if ((!sameSite && url.protocol !== 'https:') || url.username || url.password) {
-    return '';
-  }
-
-  return url.href;
+  const value = hasScheme || raw.startsWith('/') ? raw : `https://${raw}`;
+  return safeUrl(value, { external: 'any', schemes: ['mailto:', 'tel:'] }) || '';
 }
 
 /**
@@ -194,6 +175,7 @@ export default function decorate(block) {
   if (descriptionHtml) {
     const descriptionElement = document.createElement('div');
     descriptionElement.className = 'promo-card-description';
+    // eslint-disable-next-line no-restricted-syntax -- authored rich text EDS already rendered
     descriptionElement.innerHTML = descriptionHtml;
     content.append(descriptionElement);
   }

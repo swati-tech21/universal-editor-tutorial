@@ -17,6 +17,7 @@ export default function decorate(block) {
     ? alignmentValue
     : 'center';
 
+  // eslint-disable-next-line no-restricted-syntax -- clears the block, no data
   block.innerHTML = '';
 
   const heading = document.createElement(headingType);

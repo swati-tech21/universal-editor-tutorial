@@ -27,6 +27,7 @@ export async function loadFragment(path) {
     const resp = await fetch(`${path}.plain.html`);
     if (resp.ok) {
       const main = document.createElement('main');
+      // eslint-disable-next-line no-restricted-syntax -- same-origin .plain.html rendered by EDS
       main.innerHTML = await resp.text();
 
       // reset base path for media to fragment base

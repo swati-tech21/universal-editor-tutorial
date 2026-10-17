@@ -54,6 +54,7 @@ export default function decorate(block) {
   });
 
   // Rebuild block
+  // eslint-disable-next-line no-restricted-syntax -- clears the block, no data
   block.innerHTML = '';
 
   if (titleWrapper.children.length) {
