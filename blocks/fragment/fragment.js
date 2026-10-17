@@ -19,7 +19,9 @@ import {
  * @returns {HTMLElement} The root element of the fragment
  */
 export async function loadFragment(path) {
-  if (path && path.startsWith('/') && !path.startsWith('//')) {
+  // same-origin only: a string check alone lets '/\evil.com' through, which browsers read as '//'
+  if (path && path.startsWith('/')
+    && new URL(path, window.location.href).origin === window.location.origin) {
     // eslint-disable-next-line no-param-reassign
     path = path.replace(/(\.plain)?\.html/, '');
     const resp = await fetch(`${path}.plain.html`);

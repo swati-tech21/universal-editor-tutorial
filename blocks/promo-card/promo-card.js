@@ -8,25 +8,40 @@ function getText(row) {
 /**
  * Get the first link from a row.
  * Falls back to the text value if no <a> exists.
+ * Returns '' unless the link is a same-site path, an anchor, https, mailto or tel.
  */
 function getLink(row) {
-  const link = row?.querySelector('a');
+  const raw = (row?.querySelector('a')?.getAttribute('href') || getText(row)).trim();
 
-  if (link?.href) {
-    return link.href;
-  }
-
-  const text = getText(row);
-
-  if (!text) {
+  // control characters and backslashes are how URL parsers get tricked
+  // eslint-disable-next-line no-control-regex
+  if (!raw || /[\u0000-\u001F\u007F\\]/.test(raw)) {
     return '';
   }
 
-  if (/^(https?:\/\/|\/|#)/i.test(text)) {
-    return text;
+  if (raw.startsWith('#')) {
+    return raw;
   }
 
-  return `https://${text}`;
+  // a bare domain like "example.com" is treated as https
+  const hasScheme = /^[a-z][a-z0-9+.-]*:/i.test(raw);
+  let url;
+  try {
+    url = new URL(hasScheme || raw.startsWith('/') ? raw : `https://${raw}`, window.location.href);
+  } catch {
+    return '';
+  }
+
+  if (['mailto:', 'tel:'].includes(url.protocol)) {
+    return url.href;
+  }
+
+  const sameSite = url.origin === window.location.origin;
+  if ((!sameSite && url.protocol !== 'https:') || url.username || url.password) {
+    return '';
+  }
+
+  return url.href;
 }
 
 /**
@@ -41,9 +56,10 @@ function createCta(label, href, className = 'promo-card-cta') {
   cta.className = className;
   cta.href = href;
 
-  cta.innerHTML = `
-    <span>${label}</span>
-  `;
+  // the label is plain text: never parse it as HTML
+  const span = document.createElement('span');
+  span.textContent = label;
+  cta.append(span);
 
   return cta;
 }
@@ -97,8 +113,7 @@ export default function decorate(block) {
   const title = getText(titleRow);
   const subtitle = getText(subtitleRow);
 
-  const descriptionHtml =
-    descriptionRow?.innerHTML?.trim() || '';
+  const descriptionHtml = descriptionRow?.innerHTML?.trim() || '';
 
   /* -------------------------------------------------------------
      Get variant
@@ -118,9 +133,6 @@ export default function decorate(block) {
   const variant = variantValue.includes('right')
     ? 'right-img'
     : 'left-img';
-
-  console.log('Authored variant:', variantValue);
-  console.log('Final variant:', variant);
 
   const ctaLabel = getText(ctaLabelRow);
   const ctaLink = getLink(ctaLinkRow);

@@ -1,0 +1,10 @@
+# Changes to these files need the owner's review: they control the CSP,
+# the scripts on every page, what gets served and where content comes from.
+/head.html          @swati-tech21
+/404.html           @swati-tech21
+/scripts/           @swati-tech21
+/.hlxignore         @swati-tech21
+/fstab.yaml         @swati-tech21
+/helix-query.yaml   @swati-tech21
+/helix-sitemap.yaml @swati-tech21
+/.github/           @swati-tech21
