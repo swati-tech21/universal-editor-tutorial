@@ -300,17 +300,17 @@
         "label": "Description"
       },
       {
-        "component": "text",
-        "valueType": "string",
-        "name": "ctaLabel",
-        "label": "CTA Label"
-      },
-      {
         "component": "aem-content",
         "name": "ctaLink",
         "value": "",
         "label": "CTA Link",
         "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ctaLinkText",
+        "label": "CTA Label"
       }
     ]
   },

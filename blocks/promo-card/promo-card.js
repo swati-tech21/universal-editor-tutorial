@@ -45,6 +45,42 @@ function createCta(label, href, className = 'promo-card-cta') {
   return cta;
 }
 
+const FIELDS = [
+  'image',
+  'title',
+  'subtitle',
+  'description',
+  'variant',
+  'ctaLabel',
+  'ctaLink',
+  'mainCtaLabel',
+  'mainCtaLink',
+];
+
+// "ctaLink", "CTA Link" and "cta-link" all normalise to "ctalink"
+const normalise = (key) => key.toLowerCase().replace(/[^a-z0-9]/g, '');
+const KEYS = Object.fromEntries(FIELDS.map((name) => [normalise(name), name]));
+KEYS.promovariant = 'variant';
+
+/**
+ * Map the authored rows to the model fields.
+ * Key-value markup has two cells per row (key | value) and is read by key.
+ * Older content has one cell per row and is read by position.
+ */
+function getFields(rows) {
+  const keyValue = rows.every((row) => row.children.length === 2
+    && KEYS[normalise(row.children[0].textContent)]);
+
+  if (keyValue) {
+    return Object.fromEntries(rows.map((row) => [
+      KEYS[normalise(row.children[0].textContent)],
+      row.children[1],
+    ]));
+  }
+
+  return Object.fromEntries(FIELDS.map((name, i) => [name, rows[i]]));
+}
+
 /**
  * Get image from the image row.
  */
@@ -59,31 +95,17 @@ export default function decorate(block) {
     return;
   }
 
-  /*
-   * Expected Universal Editor model order:
-   *
-   * 0 - Image
-   * 1 - Title
-   * 2 - Subtitle
-   * 3 - Description
-   * 4 - Variant
-   * 5 - CTA Label
-   * 6 - CTA Link
-   * 7 - Main CTA Label
-   * 8 - Main CTA Link
-   */
-
-  const [
-    imageRow,
-    titleRow,
-    subtitleRow,
-    descriptionRow,
-    variantRow,
-    ctaLabelRow,
-    ctaLinkRow,
-    mainCtaLabelRow,
-    mainCtaLinkRow,
-  ] = rows;
+  const {
+    image: imageRow,
+    title: titleRow,
+    subtitle: subtitleRow,
+    description: descriptionRow,
+    variant: variantRow,
+    ctaLabel: ctaLabelRow,
+    ctaLink: ctaLinkRow,
+    mainCtaLabel: mainCtaLabelRow,
+    mainCtaLink: mainCtaLinkRow,
+  } = getFields(rows);
 
   /* -------------------------------------------------------------
      Get authored values safely
