@@ -1,3 +1,5 @@
+import safeUrl from '../../scripts/utils/safe-url.js';
+
 /**
  * Get the text content of a row safely.
  */
@@ -8,25 +10,19 @@ function getText(row) {
 /**
  * Get the first link from a row.
  * Falls back to the text value if no <a> exists.
+ * Returns '' unless the link is a same-site path, an anchor, https, mailto or tel.
  */
 function getLink(row) {
-  const link = row?.querySelector('a');
+  const raw = (row?.querySelector('a')?.getAttribute('href') || getText(row)).trim();
 
-  if (link?.href) {
-    return link.href;
+  if (raw.startsWith('#')) {
+    return raw;
   }
 
-  const text = getText(row);
-
-  if (!text) {
-    return '';
-  }
-
-  if (/^(https?:\/\/|\/|#)/i.test(text)) {
-    return text;
-  }
-
-  return `https://${text}`;
+  // a bare domain like "example.com" is treated as https
+  const hasScheme = /^[a-z][a-z0-9+.-]*:/i.test(raw);
+  const value = hasScheme || raw.startsWith('/') ? raw : `https://${raw}`;
+  return safeUrl(value, { external: 'any', schemes: ['mailto:', 'tel:'] }) || '';
 }
 
 /**
@@ -41,11 +37,48 @@ function createCta(label, href, className = 'promo-card-cta') {
   cta.className = className;
   cta.href = href;
 
-  cta.innerHTML = `
-    <span>${label}</span>
-  `;
+  // the label is plain text: never parse it as HTML
+  const span = document.createElement('span');
+  span.textContent = label;
+  cta.append(span);
 
   return cta;
+}
+
+const FIELDS = [
+  'image',
+  'title',
+  'subtitle',
+  'description',
+  'variant',
+  'ctaLabel',
+  'ctaLink',
+  'mainCtaLabel',
+  'mainCtaLink',
+];
+
+// "ctaLink", "CTA Link" and "cta-link" all normalise to "ctalink"
+const normalise = (key) => key.toLowerCase().replace(/[^a-z0-9]/g, '');
+const KEYS = Object.fromEntries(FIELDS.map((name) => [normalise(name), name]));
+KEYS.promovariant = 'variant';
+
+/**
+ * Map the authored rows to the model fields.
+ * Key-value markup has two cells per row (key | value) and is read by key.
+ * Older content has one cell per row and is read by position.
+ */
+function getFields(rows) {
+  const keyValue = rows.every((row) => row.children.length === 2
+    && KEYS[normalise(row.children[0].textContent)]);
+
+  if (keyValue) {
+    return Object.fromEntries(rows.map((row) => [
+      KEYS[normalise(row.children[0].textContent)],
+      row.children[1],
+    ]));
+  }
+
+  return Object.fromEntries(FIELDS.map((name, i) => [name, rows[i]]));
 }
 
 /**
@@ -62,31 +95,17 @@ export default function decorate(block) {
     return;
   }
 
-  /*
-   * Expected Universal Editor model order:
-   *
-   * 0 - Image
-   * 1 - Title
-   * 2 - Subtitle
-   * 3 - Description
-   * 4 - Variant
-   * 5 - CTA Label
-   * 6 - CTA Link
-   * 7 - Main CTA Label
-   * 8 - Main CTA Link
-   */
-
-  const [
-    imageRow,
-    titleRow,
-    subtitleRow,
-    descriptionRow,
-    variantRow,
-    ctaLabelRow,
-    ctaLinkRow,
-    mainCtaLabelRow,
-    mainCtaLinkRow,
-  ] = rows;
+  const {
+    image: imageRow,
+    title: titleRow,
+    subtitle: subtitleRow,
+    description: descriptionRow,
+    variant: variantRow,
+    ctaLabel: ctaLabelRow,
+    ctaLink: ctaLinkRow,
+    mainCtaLabel: mainCtaLabelRow,
+    mainCtaLink: mainCtaLinkRow,
+  } = getFields(rows);
 
   /* -------------------------------------------------------------
      Get authored values safely
@@ -97,8 +116,7 @@ export default function decorate(block) {
   const title = getText(titleRow);
   const subtitle = getText(subtitleRow);
 
-  const descriptionHtml =
-    descriptionRow?.innerHTML?.trim() || '';
+  const descriptionHtml = descriptionRow?.innerHTML?.trim() || '';
 
   /* -------------------------------------------------------------
      Get variant
@@ -118,9 +136,6 @@ export default function decorate(block) {
   const variant = variantValue.includes('right')
     ? 'right-img'
     : 'left-img';
-
-  console.log('Authored variant:', variantValue);
-  console.log('Final variant:', variant);
 
   const ctaLabel = getText(ctaLabelRow);
   const ctaLink = getLink(ctaLinkRow);
@@ -182,6 +197,7 @@ export default function decorate(block) {
   if (descriptionHtml) {
     const descriptionElement = document.createElement('div');
     descriptionElement.className = 'promo-card-description';
+    // eslint-disable-next-line no-restricted-syntax -- authored rich text EDS already rendered
     descriptionElement.innerHTML = descriptionHtml;
     content.append(descriptionElement);
   }

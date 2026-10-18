@@ -1,1 +1,4 @@
 node .husky/pre-commit.mjs
+
+# scan staged changes for secrets when gitleaks is installed locally (CI always scans)
+if command -v gitleaks >/dev/null 2>&1; then gitleaks git --pre-commit --staged --redact || exit 1; fi

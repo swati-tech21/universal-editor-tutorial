@@ -318,8 +318,7 @@ font-family: Noto-regional, Noto-latin, TCCC-UnityText, sans-serif;
    TABLET
    ================================================================ */
 
-@media (max-width: 900px) {
-
+@media (width <= 900px) {
   .promo-card.block {
     padding: 30px 0 40px;
   }
@@ -417,8 +416,7 @@ font-family: Noto-regional, Noto-latin, TCCC-UnityText, sans-serif;
    MOBILE
    ================================================================ */
 
-@media (max-width: 768px) {
-
+@media (width <= 768px) {
   /* PROMO CARD */
 
   .promo-card.block {
@@ -427,10 +425,6 @@ font-family: Noto-regional, Noto-latin, TCCC-UnityText, sans-serif;
     margin: 0;
     height: 577px;
     overflow: visible;
-  }
-
-  .promo-card.block.right-img .promo-card-cta {
-    margin-top: 2rem;
   }
 
   /* CARD INNER */
@@ -465,6 +459,23 @@ font-family: Noto-regional, Noto-latin, TCCC-UnityText, sans-serif;
     transform: none !important;
   }
 
+  /* IMAGE */
+
+  .promo-card.block .promo-card-image,
+  .promo-card.block.left-img .promo-card-image,
+  .promo-card.block.right-img .promo-card-image {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: -74px 0 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    border-radius: 0 !important;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+
   /* LEFT IMAGE VARIANT
      Card FIRST → Image SECOND
   */
@@ -483,27 +494,12 @@ font-family: Noto-regional, Noto-latin, TCCC-UnityText, sans-serif;
 
   .promo-card.block.right-img .promo-card-image {
     order: 1 !important;
+    margin: 2px 0 0 !important;
   }
 
   .promo-card.block.right-img .promo-card-content {
     order: 2 !important;
-  }
-
-  /* IMAGE */
-
-  .promo-card.block .promo-card-image,
-  .promo-card.block.left-img .promo-card-image,
-  .promo-card.block.right-img .promo-card-image {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    margin: -74px 0 0 !important;
-    padding: 0 !important;
-    transform: none !important;
-    border-radius: 0 !important;
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
+    margin-top: -92px !important;
   }
 
   .promo-card.block .promo-card-image img {
@@ -573,6 +569,10 @@ font-family: Noto-regional, Noto-latin, TCCC-UnityText, sans-serif;
     box-sizing: border-box;
   }
 
+  .promo-card.block.right-img .promo-card-cta {
+    margin-top: 2rem;
+  }
+
   /* MAIN CTA */
 
   .promo-card.block .promo-main-cta-wrapper {
@@ -586,13 +586,5 @@ font-family: Noto-regional, Noto-latin, TCCC-UnityText, sans-serif;
     width: 100%;
     min-width: 0;
     box-sizing: border-box;
-  }
-
-  .promo-card.block.right-img .promo-card-image {
-    margin: 2px 0 0 !important;
-  }
-
-  .promo-card.block.right-img .promo-card-content {
-    margin-top: -92px !important;
   }
 }

@@ -14,6 +14,7 @@ async function loadFooterContent(path) {
   const resp = await fetch(`${cleanPath}.plain.html`);
   if (!resp.ok) return null;
   const main = document.createElement('main');
+  // eslint-disable-next-line no-restricted-syntax -- same-origin .plain.html (path is a pathname)
   main.innerHTML = await resp.text();
 
   // reset base path for media to the footer page's base, like loadFragment does
@@ -65,6 +66,7 @@ function buildColumn(row, i) {
   const button = document.createElement('button');
   button.type = 'button';
   button.className = 'footer-column-toggle';
+  // eslint-disable-next-line no-restricted-syntax -- copies markup already in the page
   button.innerHTML = headingDiv?.innerHTML || '';
   moveInstrumentation(headingDiv, button);
 
