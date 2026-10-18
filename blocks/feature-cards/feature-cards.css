@@ -6,13 +6,10 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
-
   width: 100%;
   max-width: 1200px;
-
   margin: 0 auto;
   padding: 48px 24px;
-
   box-sizing: border-box;
 }
 
@@ -24,18 +21,12 @@
 .feature-cards .feature-card {
   display: flex;
   flex-direction: column;
-
   min-width: 0;
-
   overflow: hidden;
-
   background: #fff;
-
   border: 1px solid #ddd;
   border-radius: 12px;
-
   box-sizing: border-box;
-
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
@@ -44,7 +35,6 @@
 
 .feature-cards .feature-card:hover {
   transform: translateY(-4px);
-
   box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
 }
 
@@ -56,17 +46,14 @@
 .feature-cards .feature-card-image {
   width: 100%;
   height: 220px;
-
   margin: 0;
   padding: 0;
-
   overflow: hidden;
 }
 
 
 .feature-cards .feature-card-image picture {
   display: block;
-
   width: 100%;
   height: 100%;
 }
@@ -74,10 +61,8 @@
 
 .feature-cards .feature-card-image img {
   display: block;
-
   width: 100%;
   height: 100%;
-
   object-fit: cover;
 }
 
@@ -89,9 +74,7 @@
 .feature-cards .feature-card-content {
   display: flex;
   flex-direction: column;
-
   flex: 1;
-
   padding: 24px;
 }
 
@@ -114,10 +97,8 @@
 .feature-cards .feature-card-title h5,
 .feature-cards .feature-card-title h6 {
   margin: 0;
-
   font-size: 24px;
   line-height: 1.3;
-
   font-weight: 700;
 }
 
@@ -129,9 +110,7 @@
 .feature-cards .feature-card-description {
   margin: 0 0 24px;
   padding: 0;
-
   color: #555;
-
   font-size: 16px;
   line-height: 1.6;
 }
@@ -149,22 +128,15 @@
 .feature-cards .feature-card-cta {
   display: inline-flex;
   align-items: center;
-
   width: fit-content;
-
   margin-top: auto;
   padding: 12px 20px;
-
   border-radius: 6px;
-
   background: #1473e6;
   color: #fff;
-
   font-size: 16px;
   font-weight: 600;
-
   text-decoration: none;
-
   transition:
     background-color 0.2s ease,
     transform 0.2s ease;
@@ -173,14 +145,12 @@
 
 .feature-cards .feature-card-cta:hover {
   background: #0d66d0;
-
   transform: translateX(2px);
 }
 
 
 .feature-cards .feature-card-cta::after {
   content: " →";
-
   margin-left: 6px;
 }
 
@@ -189,12 +159,10 @@
    TABLET
 ================================ */
 
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .feature-cards.block {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-
     gap: 20px;
-
     padding: 40px 20px;
   }
 
@@ -208,12 +176,10 @@
    MOBILE
 ================================ */
 
-@media (max-width: 600px) {
+@media (width <= 600px) {
   .feature-cards.block {
     grid-template-columns: 1fr;
-
     gap: 20px;
-
     padding: 32px 16px;
   }
 

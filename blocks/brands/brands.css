@@ -79,7 +79,6 @@
    ========================= */
 
 @media (width < 900px) {
-
   .brands {
     padding: 50px 24px;
   }
@@ -101,7 +100,6 @@
    ========================= */
 
 @media (width < 600px) {
-
   .brands {
     padding: 35px 25px 45px;
   }

@@ -24,7 +24,7 @@ export default function decorate(block) {
       const linkField = item.querySelector('p a');
 
       if (picture && linkField) {
-        const href = linkField.href;
+        const { href } = linkField;
 
         const link = document.createElement('a');
         link.href = href;
@@ -45,11 +45,9 @@ export default function decorate(block) {
       }
 
       grid.appendChild(item);
-    } else {
+    } else if (!titleWrapper.children.length) {
       // Heading
-      if (!titleWrapper.children.length) {
-        titleWrapper.appendChild(item);
-      }
+      titleWrapper.appendChild(item);
     }
   });
 

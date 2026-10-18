@@ -15,7 +15,7 @@
   padding: 14px;
   margin-top: 53px;
   letter-spacing: -1.5px;
-  color: rgb(0, 0, 0);
+  color: rgb(0 0 0);
   display: block;
   direction: ltr;
 }
@@ -34,7 +34,7 @@
   text-align: center;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .heading h1,
   .heading h2,
   .heading h3,
